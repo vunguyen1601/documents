@@ -1,0 +1,6 @@
+curl  --insecure -X POST -u admin:ict  --header 'Content-Type: application/json;charset=UTF-8' --header 'Accept: application/json' -d '{
+  \"uuid\": \"8dc6f778-4228-4eeb-9ec8-fd0c9811fbb1\",
+  \"eids\": [
+    \"130000197498\"
+  ]
+}' 'https://localhost:15072/api/module/meter/add'

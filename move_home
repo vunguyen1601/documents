@@ -1,0 +1,62 @@
+To avoid side effects while working in a graphical, environment we should perform all actions to move HOME from a terminal with Ctrl+Alt+F1.
+
+Temporarily mount the new partition:
+
+sudo mkdir /mnt/tmp
+sudo mount /dev/sdb1 /mnt/tmp
+assuming /sdb1 is the new partition for HOME
+
+Copy HOME to the new location:
+
+sudo rsync -avx /home/ /mnt/tmp
+We then may mount the new partition as HOME with
+
+sudo mount /dev/sdb1 /home
+to make sure all data are present. Easiest is to delete the old /home at this point (you could do this later but then you will have to boot a live system to see the old home):
+
+sudo umount /home  #unmount the new home first!
+rm -rf /home/*  #deletes the old home
+Make HOME permanent
+
+We need to know the UUID of the new partition for the fstab entry seen from:
+
+sudo blkid
+Note or copy/paste the correct UUID to edit your fstab with
+
+sudo nano /etc/fstab   #or any other editor
+and add the following line at the end:
+
+UUID=<noted number from above>    /home    ext4    defaults   0  2
+Take care to choose the appropriate filesystem here, e.g. ext3 if ext3 formatted
+
+Reboot
+
+After a reboot, your /home resides on the new drive having plenty of space.
+
+http://www.howtogeek.com/106873/how-to-use-fdisk-to-manage-partitions-on-linux/
+
+sudo fdisk /dev/sdb > d > n 
+
+sudo mkfs.ext4 /dev/sdb
+
+sudo mkdir /mnt/tmp
+sudo mount /dev/sdb1 /mnt/tmp
+
+
+
+systemctl status mysqld
+  295  systemctl start mysqld
+  297  chcon -R -t mysqld_db_t /home/soft/mysql/
+  298  systemctl start mysqld
+  300  vim /etc/systemd/system/mysql.service 
+  302  systemctl start mysqld
+  303  semanage fcontext -a -t mysqld_db_t "/home/soft/mysql(/.*)?"
+  304  systemctl start mysqld
+  305  restorecon -R -v /home/soft/mysql
+  306  systemctl start mysqld
+
+
+
+
+
+

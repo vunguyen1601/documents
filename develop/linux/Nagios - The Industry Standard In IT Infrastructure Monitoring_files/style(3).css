@@ -1,0 +1,101 @@
+/*
+Theme Name:     Pursuit Child Theme
+Theme URI:      http://themovation.com/pursuit
+Description:    Child theme for Pursuit
+Author:         Themovation
+Author URI:     http://themovation.com
+Template:       pursuit
+Version:        1.0
+License:        Regular License
+License URI:    http://themeforest.net/licenses/regular
+
+*/
+
+@import url("../pursuit/assets/css/app.css");
+
+#fancybox-close { right: -45px; }
+
+/* Font weights - override app.css */
+h1, h2, h3, h4, h5, h6 { font-weight: 500; } 
+p, li { font-weight: 300; }
+.navbar .navbar-nav > li > a { font-weight: 400; }
+
+.no-pad { padding-left: 0; padding-right: 0; }
+.btn { padding: 10px 30px; border-radius: 0; }
+.btn-primary { background-color: #4D89F9; border-color: #3371e6; }
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active { background-color: #3371E6; border-color: #1B59CD; }
+.btn-ghost { color: #4D89F9; border-color: #4D89F9; }
+.btn-ghost:hover, .btn-ghost:focus, .btn-ghost:active { background-color: #3371E6; border-color: #1B59CD; }
+.btn-ca { border-radius: 0; }
+.accent { color: #4D89F9; }
+.mr { margin-right: 20px; }
+.content-editor .btn, .service-split .btn { margin-bottom: 20px; }
+
+
+.modal-header h4 { padding: 0; margin: 0; }
+.modal-dialog { margin-top: 100px; }
+
+.form-modal { width: 100%; height: 100%; border: 0; } 
+
+#logo p { margin: 0; line-height: 2rem; font-size:14px; }
+#logo {	margin:10px 0 ! important; }
+.headhesive--stick #logo { margin-top: 11px; } 
+.headhesive--stick #logo p { display: none; }
+.headhesive--stick .navbar-nav { margin-top: 0 !important; }
+.headhesive--clone .navbar-toggle { top: 0 !important; }
+
+.dropshadow { box-shadow: 2px 2px 2px #888; }
+
+.bluebutton {
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: #4D89F9 !important;
+  background-image: none;
+  background-origin: padding-box !important;
+  background-position: 0 0;
+  background-repeat: repeat !important;
+  background-size: auto auto !important;
+  border-radius: 0px !important;
+  margin-bottom: 10px !important;
+  padding: 5px 10px !important;
+  text-align: center;
+}
+.bluebutton a, .bluebutton a:hover, .bluebutton a:visited {
+  color: #fff !important;
+  font-family: arial !important;
+  font-size: 11pt !important;
+  font-weight: bold !important;
+  text-decoration: none !important;
+}
+
+.navbar .navbar-nav .dropdown-menu li a[title~=external]:before{
+    font-family:'Glyphicons Halflings';
+    font-size:10px;
+    content: "\e144  ";
+} 
+
+@media (max-width: 1200px) { 
+ .navbar .navbar-nav {
+  margin-top: 4px;
+ }
+.navbar button.navbar-toggle {
+     top: 0;
+ }
+ .tagline {display:none}
+}
+
+@media (min-width:768px) and (max-width:991px) { 
+ .container {max-width:100%;}
+ .nav>li>a {padding-left: 6px;padding-right: 6px;font-size:15px;} 
+}
+@media (min-width: 768px){ .container {  width: 100%;} }
+
+.footer .widget{ margin-bottom: 0px }
+.footer-btm-bar {
+    background: #2e2e2e none repeat scroll 0 0;
+    padding: 0px 0 15px;
+}
+
+.whatis { text-align: center; }
+.whatis a { margin-left: 8px; } 
+.whatis img.video_lightbox_anchor_image { display: inline-block; } 

@@ -1,0 +1,18 @@
+systemctl stop mysqld
+rsync -av /var/lib/mysql new_location
+mv /var/lib/mysql /var/lib/mysql.bak
+vim /etc/my.cnf
+	[mysqld]
+	. . .
+	datadir=new_location/mysql
+	socket=new_location/mysql/mysql.sock
+
+	[client]
+	port=3306
+	socket=new_location/mysql/mysql.sock
+
+systemctl start mysqld
+
+
+semanage fcontext -a -s system_u -t mysqld_db_t "new_location/mysql(/.*)?"
+restorecon -Rv new_location/mysql

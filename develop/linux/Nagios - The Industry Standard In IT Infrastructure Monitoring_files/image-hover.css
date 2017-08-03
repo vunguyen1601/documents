@@ -1,0 +1,643 @@
+/*
+    Plugin Name: CSS3 Image Hover Effects
+    Author: Bluor Themes
+    Author URI: http://codecanyon.net/user/bluorthemes - bluorthemes.com
+    Author Mail: bluorthemes@gmail.com
+    Description: Pure CSS3 image hover effects.
+    Version: 1.0
+*/
+
+/* ==================================
+
+  [Table of contents]
+
+  1 - CAPTION EFFECTS
+    1_a - bottom to top
+    1_b - right to left
+    1_c - left to right
+    1_d - top to bottom
+
+  2 - BORDER EFFECTS
+    2_a - border radius 50
+    2_b - border radius 30-30
+    2_c - basic border
+    2_d - border animate 1
+    2_e - border animate 2
+    2_f - border animate 3
+
+  3 - BACKGROUND EFFECTS
+    3_a background effect 1
+    3_b background effect 2
+    3_c background effect 3
+    3_d background effect 3_2
+    3_e background effect 4
+    3_f background effect 4_2
+
+  4 - BUTTON EFFECTS
+
+================================== */
+
+/* 1 - CAPTION EFFECTS */
+
+.img-item {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.img-item img {
+    width: 100%;
+}
+
+.img-cap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    transition: all 350ms;
+    bottom: 0;
+    padding: 0 15px;
+    text-align: center;
+    opacity: 0;
+    color: #fff;
+}
+
+.static {
+    opacity: 1;
+}
+
+.img-details {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}
+
+.img-details h4 {
+    margin-bottom: 10px;
+}
+
+.img-details p {
+    margin-bottom: 10px;
+}
+
+.img-details .btn {
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 0;
+    transition: all 200ms;
+    -webkit-transition: all 200ms;
+    -moz-transition: all 200ms;
+    -ms-transition: all 200ms;
+    -o-transition: all 200ms;
+}
+
+.img-details .btn:hover {
+    background: #fff;
+    color: #333;
+}
+
+.img-item:hover .img-cap {
+    opacity:1;
+}
+
+/* 1_a - bottom to top */
+.bottom-to-top {
+    bottom: -100%;
+}
+
+.img-item:hover .bottom-to-top {
+    bottom: 0;
+    opacity: 1;
+}
+
+/* 1_b - right to left */
+.right-to-left {
+    right: -100%;
+    transition: all 350ms;
+    -webkit-transition: all 350ms;
+    -moz-transition: all 350ms;
+    -ms-transition: all 350ms;
+    -o-transition: all 350ms;
+}
+
+.img-item:hover .right-to-left {
+    right: 0;
+    opacity: 1;
+}
+
+/* 1_c - left to right */
+.left-to-right {
+    left: -100%;
+    transition: all 350ms;
+    -webkit-transition: all 350ms;
+    -moz-transition: all 350ms;
+    -ms-transition: all 350ms;
+    -o-transition: all 350ms;
+}
+
+.img-item:hover .left-to-right {
+    left: 0;
+    opacity: 1;
+}
+
+/* 1_d - top to bottom */
+.top-to-bottom {
+    top: -100%;
+    transition: all 350ms;
+    -webkit-transition: all 350ms;
+    -moz-transition: all 350ms;
+    -ms-transition: all 350ms;
+    -o-transition: all 350ms;
+}
+
+.img-item:hover .top-to-bottom {
+    top: 0;
+    opacity: 1;
+}
+
+/* 2 - BORDER EFFECTS */
+
+.img-item {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+    transition: all 200ms;
+}
+
+/* 2_a - border radius 50 */
+.border-radius-50:hover  {
+    border-radius: 50%;
+    transition: all 200ms;
+    -webkit-transition: all 200ms;
+    -moz-transition: all 200ms;
+    -ms-transition: all 200ms;
+    -o-transition: all 200ms;
+}
+
+/* 2_b - border radius 30-30 */
+.border-radius-30-30:hover  {
+    border-radius: 30% 0 30%;
+    transition: all 200ms;
+    -webkit-transition: all 200ms;
+    -moz-transition: all 200ms;
+    -ms-transition: all 200ms;
+    -o-transition: all 200ms;
+}
+
+/* 2_c basic border */
+.basic-border {
+    border: 2px solid #fff;
+}
+
+.basic-border:hover  {
+    border: 10px solid #fff;
+    transition: all 100ms;
+    -webkit-transition: all 100ms;
+    -moz-transition: all 100ms;
+    -ms-transition: all 100ms;
+    -o-transition: all 100ms;
+}
+
+/* 2_d border animate */
+.border-anim::before,
+.border-anim::after{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -ms-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+}
+
+.border-anim .img-wrap::before,
+.border-anim .img-wrap::after{
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 0;
+    background: #fff;
+    transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -ms-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+}
+
+.border-anim:hover::before,
+.border-anim:hover::after{
+    width: 100%;
+}
+
+.border-anim:hover .img-wrap::before,
+.border-anim:hover .img-wrap::after{
+    height: 100%;
+}
+
+/* 2_d - border animate 1 */
+.border-anim-1::before, .border-anim-1::after{
+    transition-delay: .2s;
+    -webkit-transition-delay: .2s;
+    -o-transition-delay: .2s;
+    -ms-transition-delay: .2s;
+    -moz-transition-delay: .2s;
+}
+
+.border-anim-1 .img-wrap::before,
+.border-anim-1 .img-wrap::after{
+    transition-delay: 0s;
+    -webkit-transition-delay: 0s;
+    -o-transition-delay: 0s;
+    -ms-transition-delay: 0s;
+    -moz-transition-delay: 0s;
+}
+
+.border-anim-1::before{
+    right: 0;
+    top: 0;
+}
+
+.border-anim-1::after{
+    bottom: 0;
+    left: 0;
+}
+
+.border-anim-1 .img-wrap::before{
+    left: 0;
+    top: 0;
+}
+
+.border-anim-1 .img-wrap::after{
+    bottom: 0;
+    right: 0;
+}
+
+.border-anim-1:hover::before,
+.border-anim-1:hover::after{
+    transition-delay: 0s;
+    -webkit-transition-delay: 0s;
+    -o-transition-delay: 0s;
+    -ms-transition-delay: 0s;
+    -moz-transition-delay: 0s;
+}
+
+.border-anim-1:hover .img-wrap::before,
+.border-anim-1:hover .img-wrap::after{
+    transition-delay: .1s;
+    -webkit-transition-delay: .1s;
+    -o-transition-delay: .1s;
+    -ms-transition-delay: .1s;
+    -moz-transition-delay: .1s;
+}
+
+/* 2_d - border animate 2 */
+.border-anim-2::after{
+    transition-duration: .3s;
+    -webkit-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    -ms-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    right: 0;
+    bottom: 0;
+}
+
+.border-anim-2 .img-wrap::after{
+    right: 0;
+    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    -ms-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    bottom: 0;
+}
+
+.border-anim-2::before{
+    top: 0;
+    left: 0;
+    transition-duration: 0.3s;
+    -webkit-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    -ms-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+}
+
+.border-anim-2 .img-wrap::before{
+    left: 0;
+    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    -ms-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    top: 0;
+}
+
+/* 2_d - border animate 3 */
+.border-anim-3::before{
+    left: 50%;
+    top: 0;
+    -webkit-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    -ms-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.border-anim-3::after{
+    left: 50%;
+    bottom: 0;
+    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    -ms-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+}
+
+.border-anim-3 .img-wrap::before{
+    left: 0;
+    top: 50%;
+    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    -ms-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+}
+
+.border-anim-3 .img-wrap::after{
+    right: 0;
+    top: 50%;
+    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    -ms-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+}
+
+.border-anim-3:hover::before,
+.border-anim-3:hover::after{
+    left: 0;
+}
+
+.border-anim-3:hover .img-wrap::before,
+.border-anim-3:hover .img-wrap::after{
+    top: 0;
+}
+
+/* 3 - BACKGROUND EFFECTS */
+
+/* 3_a background effect 1 */
+.background-effect img {
+    transition: all 400ms;
+    -webkit-transition: all 400ms;
+    -o-transition: all 400ms;
+    -moz-transition: all 400ms;
+    -ms-transition: all 400ms;
+}
+
+.bg-effect-1:hover img {
+    transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+    -o-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+}
+
+/* 3_b background effect 2 */
+.bg-effect-2 img {
+    transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+    -o-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+}
+
+.bg-effect-2:hover img {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -o-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+}
+
+/* 3_c background effect 3 */
+.bg-effect-3 img {
+    transition: all 800ms;
+    -webkit-transition: all 800ms;
+    -o-transition: all 800ms;
+    -ms-transition: all 800ms;
+    -moz-transition: all 800ms;
+}
+
+.bg-effect-3:hover img {
+    transform: scale(1.5) rotate(360deg);
+    -webkit-transform: scale(1.5) rotate(360deg);
+    -o-transform: scale(1.5) rotate(360deg);
+    -ms-transform: scale(1.5) rotate(360deg);
+    -moz-transform: scale(1.5) rotate(360deg);
+}
+
+/* 3_d background effect 3_2 */
+.bg-effect-3_2 img {
+    transition: all 800ms;
+    -webkit-transition: all 800ms;
+    -moz-transition: all 800ms;
+    -o-transition: all 800ms;
+    -ms-transition: all 800ms;
+}
+
+.bg-effect-3_2:hover img {
+    transform: scale(1.3) skewY(8deg);
+    -webkit-transform: scale(1.3) skewY(8deg);
+    -moz-transform: scale(1.3) skewY(8deg);
+    -o-transform: scale(1.3) skewY(8deg);
+    -ms-transform: scale(1.3) skewY(8deg);
+}
+
+/* 3_e background effect 4 */
+.bg-effect-4 {
+    perspective: 960px;
+    -moz-perspective: 960px;
+    -webkit-perspective: 960px;
+    -o-perspective: 960px;
+    -ms-perspective: 960px;
+    width: 100%;
+    height: 360px;
+}
+
+.bg-effect-4 .img-wrap2 {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url("../img/1.jpg")/*
+                -o-linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url("../img/1.jpg")
+                -moz-linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url("../img/1.jpg")
+                -ms-linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url("../img/1.jpg")
+                -webkit-linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url("../img/1.jpg")*/;
+    background-size: 0, cover;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transition: all 1000ms;
+    -o-transition: all 1000ms;
+    -moz-transition: all 1000ms;
+    -webkit-transition: all 1000ms;
+    -ms-transition: all 1000ms;
+}
+
+.bg-effect-4:hover .img-wrap2 {
+    transform-origin:left;
+    -webkit-transform-origin: left;
+    -ms-transform-origin: left;
+    -moz-transform-origin: left;
+    -o-transform-origin: left;
+    transform: rotateX(80deg);
+    -moz-transform: rotateX(80deg);
+    -o-transform: rotateX(80deg);
+    -webkit-transform: rotateX(80deg);
+    -ms-transform: rotateX(80deg);
+}
+
+.bg-effect-4 .img-wrap2:after {
+    content: '';
+    width: 100%;
+    height: 30px;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    background: inherit;
+    background-size: cover;
+    background-position:bottom;
+    transform: rotateX(90deg);
+    -moz-transform: rotateX(90deg);
+    -o-transform: rotateX(90deg);
+    -webkit-transform: rotateX(90deg);
+    -ms-transform: rotateX(90deg);
+    transform-origin: bottom;
+    -webkit-transform-origin: bottom;
+    -ms-transform-origin: bottom;
+    -moz-transform-origin: bottom;
+    -o-transform-origin: bottom;
+}
+
+.bg-effect-4 .img-wrap2 {
+    color: #fff;
+}
+
+.bg-effect-4 .img-wrap2 h4 {
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    text-align: center;
+    transform: rotateX(-90deg);
+    -moz-transform: rotateX(-90deg);
+    -o-transform: rotateX(-90deg);
+    -webkit-transform: rotateX(-90deg);
+    -ms-transform: rotateX(-90deg);
+    transform-origin: top;
+    -webkit-transform-origin: top;
+    -ms-transform-origin: top;
+    -moz-transform-origin: top;
+    -o-transform-origin: top;
+    z-index: 1;
+    line-height: 30px;
+    font-size: 14px;
+}
+
+.bg-effect-4 .img-wrap2:before {
+    content: '';
+    opacity: .20;
+    width: 100%;
+    height: 100%;
+    margin-top: -20px;
+    position:absolute;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, .5);
+    box-shadow: 0 0 100px 50px rgba(0, 0, 0, .5);
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    transform: rotateX(95deg) translateZ(-80px) scale(.80);
+    -moz-transform: rotateX(95deg) translateZ(-80px) scale(.80);
+    -o-transform: rotateX(95deg) translateZ(-80px) scale(.80);
+    -webkit-transform: rotateX(95deg) translateZ(-80px) scale(.80);
+    -ms-transform: rotateX(95deg) translateZ(-80px) scale(.80);
+    transform-origin: bottom;
+    -o-transform-origin: bottom;
+    -moz-transform-origin: bottom;
+    -webkit-transform-origin: bottom;
+    -ms-transform-origin: bottom;
+}
+
+.bg-effect-4:hover .img-wrap2:before {
+    opacity: 1;
+    box-shadow: 0 0 25px 25px rgba(0, 0, 0, .5);
+    transform: translateZ(-60px) scale(0.90);
+    -moz-transform: translateZ(-60px) scale(0.90);
+    -ms-transform: translateZ(-60px) scale(0.90);
+    -o-transform: translateZ(-60px) scale(0.90);
+    -webkit-transform: translateZ(-60px) scale(0.90);
+}
+
+/* 3_f - background effect 4_2 (no shadow) */
+.bg-effect-4-no-s .img-wrap2:before {
+    display: none;
+}
+
+/* BUTTON EFFECTS */
+
+.btn-effects img {
+    transition: all 400ms;
+    -webkit-transition: all 400ms;
+    -moz-transition: all 400ms;
+    -o-transition: all 400ms;
+    -ms-transition: all 400ms;
+}
+
+.btn-effects:hover img {
+    transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -o-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+}
+
+.btn-effects-ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.btn-effects-ul li {
+    display: inline-block;
+}
+
+.btn-effects-ul li a {
+    color: #fff;
+    border: 1px solid #fff;
+    width: 32px;
+    height:32px;
+    line-height: 30px;
+    display: block;
+    transition: all 200ms;
+    -o-transition: all 200ms;
+    -ms-transition: all 200ms;
+    -moz-transition: all 200ms;
+    -webkit-transition: all 200ms;
+}
+
+.btn-effects-ul li a:hover {
+    background: #fff;
+    color: #333;
+}

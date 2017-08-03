@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<!-- saved from url=(0083)https://securelist.com/analysis/publications/64361/versatile-ddos-trojan-for-linux/ -->
+<html><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<link rel="author" href="https://plus.google.com/u/0/101239979599494298420/">
+<link rel="publisher" href="https://plus.google.com/u/0/101239979599494298420/">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://securelist.com/xmlrpc.php">
+<link rel="shortcut icon" href="https://cdn.securelist.com/wp-content/themes/securelist/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://cdn.securelist.com/wp-content/themes/securelist/images/favicon.ico" type="image/x-icon">
+<link rel="alternate" hreflang="en" href="http://securelist.com/">
+<link rel="alternate" hreflang="ru" href="http://securelist.ru/">
+<link rel="alternate" hreflang="de" href="http://www.viruslist.com/de/">
+<link rel="alternate" hreflang="fr" href="http://www.viruslist.com/fr/">
+<link rel="alternate" hreflang="sp" href="http://www.viruslist.com/sp/">
+<link rel="alternate" hreflang="pl" href="http://securelist.pl/?VLredirect=1">
+<!--[if lt IE 9]>
+<script src="https://cdn.securelist.com/wp-content/themes/securelist/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<title>Versatile DDoS Trojan for Linux - Securelist</title>
+<!-- JM Twitter Cards by Julien Maury 7.6.0 -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@Securelist">
+<meta name="twitter:site" content="@Securelist">
+<meta name="twitter:title" content="Versatile DDoS Trojan for Linux">
+<meta name="twitter:description" content="In February  2014, an article was published on a popular Russian IT website under a curious title  - Studying the BillGates Linux Botnet. It described a Trojan with sufficiently  versatile DDoS functi">
+<meta name="twitter:image" content="https://cdn.securelist.com/files/2014/07/124191613.jpg">
+<!-- /JM Twitter Cards by Julien Maury 7.6.0 -->
+
+<!-- All in One SEO Pack 2.3.12 by Michael Torbert of Semper Fi Web Design[1503,1612] -->
+<meta name="description" content="In February 2014, an article was published on a popular Russian IT website under a curious title - Studying the BillGates Linux Botnet. It described a Trojan">
+
+<meta name="keywords" content="botnets,ddos-attacks,dns amplification,linux">
+
+<link rel="canonical" href="https://securelist.com/analysis/publications/64361/versatile-ddos-trojan-for-linux/">
+<!-- /all in one seo pack -->
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Securelist - Information about Viruses, Hackers and Spam » Feed" href="https://securelist.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Securelist - Information about Viruses, Hackers and Spam » Comments Feed" href="https://securelist.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Securelist - Information about Viruses, Hackers and Spam » Versatile DDoS Trojan for Linux Comments Feed" href="https://securelist.com/analysis/publications/64361/versatile-ddos-trojan-for-linux/feed/">
+<link rel="stylesheet" id="crayon-group-css" href="./Versatile DDoS Trojan for Linux - Securelist_files/saved_resource" type="text/css" media="all">
+<link rel="stylesheet" id="taxonomy-image-plugin-public-group-css" href="./Versatile DDoS Trojan for Linux - Securelist_files/saved_resource(1)" type="text/css" media="screen">
+<!--[if lt IE 10]>
+<link rel='stylesheet' id='securelist-ie-group-css' href='https://cdn.securelist.com/wp-content/plugins/bwp-minify/min/?f=wp-content/themes/securelist/css/ie.css&#038;ver=1491248138' type='text/css' media='all' />
+<![endif]-->
+<link rel="stylesheet" id="kss_custom_css-group-css" href="./Versatile DDoS Trojan for Linux - Securelist_files/saved_resource(2)" type="text/css" media="all">
+<script type="text/javascript" async="" src="./Versatile DDoS Trojan for Linux - Securelist_files/recaptcha__en.js"></script><script type="text/javascript" async="" src="./Versatile DDoS Trojan for Linux - Securelist_files/platform.js" gapi_processed="true"></script><script id="twitter-wjs" src="./Versatile DDoS Trojan for Linux - Securelist_files/widgets.js"></script><script id="facebook-jssdk" src="./Versatile DDoS Trojan for Linux - Securelist_files/all.js"></script><script async="" src="./Versatile DDoS Trojan for Linux - Securelist_files/prum.min.js"></script><script async="" src="./Versatile DDoS Trojan for Linux - Securelist_files/analytics.js"></script><script async="" src="./Versatile DDoS Trojan for Linux - Securelist_files/fbevents.js"></script><script async="" src="./Versatile DDoS Trojan for Linux - Securelist_files/fbds.js"></script><script type="text/javascript" async="" src="./Versatile DDoS Trojan for Linux - Securelist_files/munchkin.js"></script><script type="text/javascript" src="./Versatile DDoS Trojan for Linux - Securelist_files/jquery.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var sti_sharer = {"url":"https:\/\/securelist.com\/wp-content\/plugins\/share-this-image\/php\/sharer.php"};
+/* ]]> */
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var kss = {"twitter_account":"Securelist"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Versatile DDoS Trojan for Linux - Securelist_files/saved_resource(3)"></script>
+<link rel="https://api.w.org/" href="https://securelist.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://securelist.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://cdn.securelist.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Cloud Services: Holes in Corporate Network Security" href="https://securelist.com/blog/security-policies/64392/cloud-services-holes-in-corporate-network-security/">
+<link rel="next" title="New gTLDs, same attacks" href="https://securelist.com/blog/incidents/64555/new-gtlds-same-attacks/">
+<link rel="shortlink" href="https://wp.me/p3XSmm-gK5">
+<link rel="alternate" type="application/json+oembed" href="https://securelist.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fsecurelist.com%2Fanalysis%2Fpublications%2F64361%2Fversatile-ddos-trojan-for-linux%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://securelist.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fsecurelist.com%2Fanalysis%2Fpublications%2F64361%2Fversatile-ddos-trojan-for-linux%2F&amp;format=xml">
+<script src="./Versatile DDoS Trojan for Linux - Securelist_files/saved_resource(4)" type="text/javascript"></script><script type="text/javascript">
+document.write(unescape("%3Cscript src='//munchkin.marketo.net/munchkin.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./Versatile DDoS Trojan for Linux - Securelist_files/munchkin(1).js" type="text/javascript"></script>
+<script>Munchkin.init('802-IJN-240');</script>
+<script src="./Versatile DDoS Trojan for Linux - Securelist_files/3431070370.js"></script>
+
+<!-- Facebook Conversion Code for https://securelist.com/ -->
+<script>(function() {
+  var _fbq = window._fbq || (window._fbq = []);
+  if (!_fbq.loaded) {
+    var fbds = document.createElement('script');
+    fbds.async = true;
+    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(fbds, s);
+    _fbq.loaded = true;
+  }
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(['track', '6037454831409', {'value':'0.00','currency':'RUB'}]);
+</script>
+<noscript>&lt;img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6037454831409&amp;cd[value]=0.00&amp;cd[currency]=RUB&amp;noscript=1" /&gt;</noscript><!-- Facebook Pixel Code -->
+<script>
+	!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+	n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+	document,'script','//connect.facebook.net/en_US/fbevents.js');
+	fbq('init', '839281392784015');
+	fbq('track', 'PageView');
+</script>
+<noscript>&lt;img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=839281392784015&amp;amp;ev=PageView&amp;amp;noscript=1" /&gt;</noscript>
+<!-- End Facebook Pixel Code -->
+                    <script>
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-15857463-1', 'auto');
+                ga('set', 'anonymizeIp', true);
+                
+                                
+                    
+                                            
+                        ga('send', 'pageview', {
+                                                            'dimension1' : 'Mikhail Kuzin',
+                                                            'dimension2' : '64361',
+                                                            'dimension3' : '2014-07-10',
+                                                            'dimension4' : 'Analysis, Publications',
+                                                            'dimension5' : 'Botnets, DDoS-attacks, DNS Amplification, Linux',
+                                                    });
+
+                        
+                                                        
+                            
+                        
+                                                        
+                            
+                                            
+                                    
+                
+            </script>
+            
+<script>
+var _prum = [['id', '560b0cc5abe53daf128a2dfc'],
+             ['mark', 'firstbyte', (new Date()).getTime()]];
+(function() {
+    var s = document.getElementsByTagName('script')[0]
+      , p = document.createElement('script');
+    p.async = 'async';
+    p.src = '//rum-static.pingdom.net/prum.min.js';
+    s.parentNode.insertBefore(p, s);
+})();
+</script>
+
+
+<link rel="dns-prefetch" href="https://v0.wordpress.com/">
+<style type="text/css">img#wpstats{display:none}</style>	<style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style></head><body class="post-template-default single single-post postid-64361 single-format-standard en_US site-loading sidebar category-analysis category-publications ms-43 tos-desktop" itemscope="" itemtype="http://schema.org/WebPage"><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Versatile DDoS Trojan for Linux - Securelist_files/1FegrZjPbq3.html" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="f129b0bc3aec484" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" src="./Versatile DDoS Trojan for Linux - Securelist_files/ping.html" style="display: none;"></iframe></div></div></div>
+	<script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=160639043985664";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	<script>(function(){var po=document.createElement('script');po.type='text/javascript';po.async=true;po.src='//apis.google.com/js/platform.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(po,s);})();</script>
+	<link rel="icon" href="https://cdn.securelist.com/wp-content/themes/securelist/images/site-icon.png" sizes="32x32">
+<link rel="icon" href="https://cdn.securelist.com/wp-content/themes/securelist/images/site-icon.png" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://cdn.securelist.com/wp-content/themes/securelist/images/site-icon.png">
+<meta name="msapplication-TileImage" content="https://cdn.securelist.com/wp-content/themes/securelist/images/site-icon.png">
+
+
+
+
+	<div id="page" class="site">
+		<header id="masthead" class="site-header" role="banner" itemscope="" itemtype="http://schema.org/WPHeader">
+
+			<div class="header-col-4 right">
+				<div class="header-search-form-wrap">
+					<div class="header-search-button-wrap">
+						<div class="header-search-button"></div>
+					</div>
+					<div class="header-search-form">
+						<form role="search" class="searchform" action="https://securelist.com/" method="get">
+    <fieldset>
+        <input type="text" name="s" class="search" value="Search" onfocus="if(this.value==this.defaultValue)this.value=&#39;&#39;;" onblur="if(this.value==&#39;&#39;)this.value=this.defaultValue;">
+        <input type="submit" class="form-button" alt="Search">
+            </fieldset>
+</form>
+					</div>
+				</div>
+			</div><!--  .header-col-4 -->
+
+			<div class="header-col-1 left">
+												<a class="home-link" href="https://securelist.com/" title="Securelist - Information about Viruses, Hackers and Spam" rel="home">
+						<h1 class="site-title">Securelist – Information about Viruses, Hackers and Spam</h1>
+					</a>
+							</div><!-- .header-col-1 -->
+
+			<div class="header-col-2 left ">
+
+				<div class="inside-col-1 left">
+					&nbsp;
+					
+				</div><!-- .inside-col-1 -->
+
+				<div class="inside-col-2 left">
+											<span class="ico-person left"></span><span class="cp-text cp-text-login uppercase">Log in</span><img src="./Versatile DDoS Trojan for Linux - Securelist_files/ico-arrow-sm.png" vspace="3">
+						
+
+
+	<div class="header-login">
+		<div class="header-login-row-1">
+			<h6 class="uppercase">Log In</h6>
+			
+		<form name="loginform" id="loginform" action="https://securelist.com/wp-login.php?wpe-login=kasperskyhub" method="post">
+			
+			<p class="login-username">
+				<label for="user_login"></label>
+				<input type="text" name="log" id="user_login" class="input" value="" size="20">
+			</p>
+			<p class="login-password">
+				<label for="user_pass"></label>
+				<input type="password" name="pwd" id="user_pass" class="input" value="" size="20" autocomplete="off">
+			</p>
+			
+			<p class="login-remember"><label><input name="rememberme" type="checkbox" id="rememberme" value="forever"> Keep me logged in</label></p>
+			<p class="login-submit">
+				<input type="submit" name="wp-submit" id="wp-submit" class="button button-primary" value="Log In">
+				<input type="hidden" name="redirect_to" value="https://securelist.com">
+			</p>
+			
+		</form>		</div><!-- .header-login-row-1 -->
+
+		<div class="header-login-row-2">
+
+			<!--div class="header-login-col-3 left">
+				<h6 class="uppercase">Register an account</h6>
+				<span class="login-register-description">Its easy to register for one.</span>
+			</div>
+
+			<div class="header-login-col-4 left">
+				<a href="https://securelist.com/register"><span class="register-button"></span></a>
+			</div-->
+
+		</div><!-- .header-login-row-2 -->
+	</div><!-- .header-login -->
+
+									</div><!-- inside-col-2 -->
+
+				<div class="inside-col-3 left">
+					<span class="ico-globe left"></span><span class="cp-text cp-text-language uppercase">English</span>
+						<ul class="header-language">
+							<li class="language"><a href="https://securelist.com/" rel="alternate" hreflang="en">English</a></li>
+							<li class="language"><a href="https://securelist.ru/" rel="alternate" hreflang="ru">Pусский</a></li>
+							<li class="language"><a href="https://de.securelist.com/" rel="alternate" hreflang="de">Deutsch</a></li>
+							<li class="language"><a href="https://securelist.fr/" rel="alternate" hreflang="fr">Français</a></li>
+							<li class="language"><a href="https://securelist.it/" rel="alternate" hreflang="it">Italiano</a></li>
+							<li class="language"><a href="https://securelist.lat/" rel="alternate" hreflang="sp">Español</a></li>
+							<li class="language"><a href="http://securelist.pl/?VLredirect=1" rel="alternate" hreflang="pl">Polski</a></li>
+						</ul>
+				</div><!-- .inside-col-3 -->
+
+			</div><!-- .header-col-2 -->
+
+			<div class="header-col-3 left">
+
+				<nav class="primary-navigation navigation" role="navigation" itemscope="" itemtype="http://schema.org/SiteNavigationElement">
+					<div class="menu-primary-container"><ul id="menu-primary" class="menu securelist-nav-menu menu-primary"><li id="menu-item-226" class="menu-item-threats menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-226"><a>Threats</a>
+<ul class="sub-menu">
+	<li id="menu-item-63229" class="topic-item detected menu-item menu-item-type-custom menu-item-object-custom menu-item-63229"><a href="https://securelist.com/threats/detected-objects/">Detected Objects</a><span class="ico-detected-objects" onclick="location.href=&#39;/threats/detected-objects/&#39;"></span><ul class="threat topic-content">	<li class="topic-category detected-objects">		<p class="topic-title uppercase">Detected Objects</p>		<ul class="article-list threats-sub-menu">	<li class="clear headline"><a href="https://securelist.com/blog/sas/77908/lazarus-under-the-hood/" title="Lazarus Under The Hood">Lazarus Under The Hood</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/sas/77883/penquins-moonlit-maze/" title="Penquin’s Moonlit Maze">Penquin's Moonlit Maze</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77855/the-mistakes-of-smart-medicine/" title="The Mistakes of Smart Medicine">The Mistakes of Smart Medicine</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77842/threat-landscape-for-industrial-automation-systems-h2-2016/" title="Threat Landscape for Industrial Automation Systems, H2 2016">Threat Landscape for Industrial Automation Systems, H2 ...</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77784/the-cost-of-launching-a-ddos-attack/" title="The cost of launching a DDoS attack">The cost of launching a DDoS attack</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/sas/77813/top-8-reasons-you-dont-want-to-miss-sas-2017/" title="Top 8 Reasons You Don’t Want to Miss SAS 2017">Top 8 Reasons You Don't Want to Miss SAS 2017</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77762/petrwrap-the-new-petya-based-ransomware-used-in-targeted-attacks/" title="PetrWrap: the new Petya-based ransomware used in targeted attacks">PetrWrap: the new Petya-based ransomware used in target...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77725/from-shamoon-to-stonedrill/" title="From Shamoon to StoneDrill">From Shamoon to StoneDrill</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/kaspersky-security-bulletin/77681/mobile-malware-evolution-2016/" title="Mobile malware evolution 2016">Mobile malware evolution 2016</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77698/how-security-products-are-tested-part-1/" title="How Security Products are Tested – Part 1">How Security Products are Tested – Part 1</a></li>		</ul><!-- .article-list -->		<div class="more">			<div class="row-1 left">				<p>More articles about:</p>				<ul>					<li><a href="https://securelist.com/threats/detected-objects/">Detected Objects</a></li>				</ul>			</div><!-- .row-1 -->			<div class="row-2 left">				<p>More about Detected Objects:</p>				<ul>					<li class="left"><a href="https://securelist.com/encyclopedia/">Encyclopedia</a></li>					<li class="left"><a href="https://securelist.com/statistics/">Statistics</a></li>				</ul>			</div><!-- .row-2 -->		</div><!-- .more -->	</li><!-- .detected-objects --></ul><!-- .topic-content--></li>
+	<li id="menu-item-63230" class="topic-item spam menu-item menu-item-type-custom menu-item-object-custom menu-item-63230"><a href="https://securelist.com/threats/spam-and-phishing">Spam and Phishing</a><span class="ico-spam-and-phishing" onclick="location.href=&#39;/threats/spam-and-phishing&#39;"></span><ul class="threat topic-content">	<li class="topic-category spam-and-phishing">		<p class="topic-title uppercase">Spam and Phishing</p>		<ul class="article-list threats-sub-menu">	<li class="clear headline"><a href="https://securelist.com/blog/sas/77908/lazarus-under-the-hood/" title="Lazarus Under The Hood">Lazarus Under The Hood</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/sas/77883/penquins-moonlit-maze/" title="Penquin’s Moonlit Maze">Penquin's Moonlit Maze</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77855/the-mistakes-of-smart-medicine/" title="The Mistakes of Smart Medicine">The Mistakes of Smart Medicine</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77842/threat-landscape-for-industrial-automation-systems-h2-2016/" title="Threat Landscape for Industrial Automation Systems, H2 2016">Threat Landscape for Industrial Automation Systems, H2 ...</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77784/the-cost-of-launching-a-ddos-attack/" title="The cost of launching a DDoS attack">The cost of launching a DDoS attack</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/sas/77813/top-8-reasons-you-dont-want-to-miss-sas-2017/" title="Top 8 Reasons You Don’t Want to Miss SAS 2017">Top 8 Reasons You Don't Want to Miss SAS 2017</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77762/petrwrap-the-new-petya-based-ransomware-used-in-targeted-attacks/" title="PetrWrap: the new Petya-based ransomware used in targeted attacks">PetrWrap: the new Petya-based ransomware used in target...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77725/from-shamoon-to-stonedrill/" title="From Shamoon to StoneDrill">From Shamoon to StoneDrill</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/kaspersky-security-bulletin/77681/mobile-malware-evolution-2016/" title="Mobile malware evolution 2016">Mobile malware evolution 2016</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77698/how-security-products-are-tested-part-1/" title="How Security Products are Tested – Part 1">How Security Products are Tested – Part 1</a></li>		</ul><!-- .article-list -->		<div class="more">			<div class="row-1 left">				<p>More articles about:</p>				<ul>					<li><a href="https://securelist.com/threats/spam-and-phishing">Spam and Phishing</a></li>				</ul>			</div><!-- .row-1 -->			<div class="row-2 left">				<p>More about Spam and Phishing:</p>				<ul>					<li class="left"><a href="https://securelist.com/encyclopedia/">Encyclopedia</a></li>					<li class="left"><a href="https://securelist.com/statistics/">Statistics</a></li>				</ul>			</div><!-- .row-2 -->		</div><!-- .more -->	</li><!-- .spam-and-phishing --></ul><!-- .topic-content--></li>
+	<li id="menu-item-63231" class="topic-item vulnerabilities menu-item menu-item-type-custom menu-item-object-custom menu-item-63231"><a href="https://securelist.com/threats/vulnerabilities-and-hackers">Vulnerabilities and Hackers</a><span class="ico-vulnerabilities-and-hackers" onclick="location.href=&#39;/threats/vulnerabilities-and-hackers&#39;"></span><ul class="threat topic-content">	<li class="topic-category vulnerabilities-and-hackers">		<p class="topic-title uppercase">Vulnerabilities and Hackers</p>		<ul class="article-list threats-sub-menu">	<li class="clear headline"><a href="https://securelist.com/blog/sas/77908/lazarus-under-the-hood/" title="Lazarus Under The Hood">Lazarus Under The Hood</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/sas/77883/penquins-moonlit-maze/" title="Penquin’s Moonlit Maze">Penquin's Moonlit Maze</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77855/the-mistakes-of-smart-medicine/" title="The Mistakes of Smart Medicine">The Mistakes of Smart Medicine</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77842/threat-landscape-for-industrial-automation-systems-h2-2016/" title="Threat Landscape for Industrial Automation Systems, H2 2016">Threat Landscape for Industrial Automation Systems, H2 ...</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77784/the-cost-of-launching-a-ddos-attack/" title="The cost of launching a DDoS attack">The cost of launching a DDoS attack</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/sas/77813/top-8-reasons-you-dont-want-to-miss-sas-2017/" title="Top 8 Reasons You Don’t Want to Miss SAS 2017">Top 8 Reasons You Don't Want to Miss SAS 2017</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77762/petrwrap-the-new-petya-based-ransomware-used-in-targeted-attacks/" title="PetrWrap: the new Petya-based ransomware used in targeted attacks">PetrWrap: the new Petya-based ransomware used in target...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77725/from-shamoon-to-stonedrill/" title="From Shamoon to StoneDrill">From Shamoon to StoneDrill</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/kaspersky-security-bulletin/77681/mobile-malware-evolution-2016/" title="Mobile malware evolution 2016">Mobile malware evolution 2016</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77698/how-security-products-are-tested-part-1/" title="How Security Products are Tested – Part 1">How Security Products are Tested – Part 1</a></li>		</ul><!-- .article-list -->		<div class="more">			<div class="row-1 left">				<p>More articles about:</p>				<ul>					<li><a href="https://securelist.com/threats/vulnerabilities-and-hackers">Vulnerabilities and Hackers</a></li>				</ul>			</div><!-- .row-1 -->			<div class="row-2 left">				<p>More about Vulnerabilities and Hackers:</p>				<ul>					<li class="left"><a href="https://securelist.com/encyclopedia/">Encyclopedia</a></li>					<li class="left"><a href="https://securelist.com/statistics/">Statistics</a></li>				</ul>			</div><!-- .row-2 -->		</div><!-- .more -->	</li><!-- .vulnerabilities-and-hackers --></ul><!-- .topic-content--></li>
+	<li id="menu-item-63232" class="topic-item internal-threats menu-item menu-item-type-custom menu-item-object-custom menu-item-63232"><a href="https://securelist.com/threats/internal-threats">Internal Threats</a><span class="ico-internal-threats" onclick="location.href=&#39;/threats/internal-threats&#39;"></span><ul class="threat topic-content">	<li class="topic-category internal-threats">		<p class="topic-title uppercase">Internal Threats</p>		<ul class="article-list threats-sub-menu">	<li class="clear headline"><a href="https://securelist.com/blog/sas/77908/lazarus-under-the-hood/" title="Lazarus Under The Hood">Lazarus Under The Hood</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/sas/77883/penquins-moonlit-maze/" title="Penquin’s Moonlit Maze">Penquin's Moonlit Maze</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77855/the-mistakes-of-smart-medicine/" title="The Mistakes of Smart Medicine">The Mistakes of Smart Medicine</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77842/threat-landscape-for-industrial-automation-systems-h2-2016/" title="Threat Landscape for Industrial Automation Systems, H2 2016">Threat Landscape for Industrial Automation Systems, H2 ...</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77784/the-cost-of-launching-a-ddos-attack/" title="The cost of launching a DDoS attack">The cost of launching a DDoS attack</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/sas/77813/top-8-reasons-you-dont-want-to-miss-sas-2017/" title="Top 8 Reasons You Don’t Want to Miss SAS 2017">Top 8 Reasons You Don't Want to Miss SAS 2017</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77762/petrwrap-the-new-petya-based-ransomware-used-in-targeted-attacks/" title="PetrWrap: the new Petya-based ransomware used in targeted attacks">PetrWrap: the new Petya-based ransomware used in target...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77725/from-shamoon-to-stonedrill/" title="From Shamoon to StoneDrill">From Shamoon to StoneDrill</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/kaspersky-security-bulletin/77681/mobile-malware-evolution-2016/" title="Mobile malware evolution 2016">Mobile malware evolution 2016</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77698/how-security-products-are-tested-part-1/" title="How Security Products are Tested – Part 1">How Security Products are Tested – Part 1</a></li>		</ul><!-- .article-list -->		<div class="more">			<div class="row-1 left">				<p>More articles about:</p>				<ul>					<li><a href="https://securelist.com/threats/internal-threats">Internal Threats</a></li>				</ul>			</div><!-- .row-1 -->			<div class="row-2 left">				<p>More about Internal Threats:</p>				<ul>					<li class="left"><a href="https://securelist.com/encyclopedia/">Encyclopedia</a></li>					<li class="left"><a href="https://securelist.com/statistics/">Statistics</a></li>				</ul>			</div><!-- .row-2 -->		</div><!-- .more -->	</li><!-- .internal-threats --></ul><!-- .topic-content--></li>
+</ul>
+</li>
+<li id="menu-item-230" class="menu-item-categories menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-230"><a>Categories</a>
+<ul class="sub-menu">
+	<li id="menu-item-58019" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-58019"><a href="https://securelist.com/all?category=27">Events</a><ul class="topic-content article-list">	<p class="topic-title uppercase">Events</p>	<li class="clear headline"><a href="https://securelist.com/blog/events/77014/update-from-the-chaos-33c3-in-hamburg/" title="Update from the chaos – 33c3 in Hamburg">Update from the chaos – 33c3 in Hamburg</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/events/76942/notes-from-hitcon-pacific-2016/" title="Notes from HITCON Pacific 2016">Notes from HITCON Pacific 2016</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/events/76742/caribbean-scuba-diving-with-it-security-in-mind/" title="Caribbean scuba diving with IT-security in mind">Caribbean scuba diving with IT-security in mind</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/events/75730/conference-report-hitcon-2016-in-taipei/" title="Conference Report: HITCON 2016 in Taipei">Conference Report: HITCON 2016 in Taipei</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/events/75597/blackhat-usa-2016/" title="Blackhat USA 2016">Blackhat USA 2016</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/events/75230/ysts-x-the-highlights-of-the-coolest-security-conference-in-brazil/" title="YSTS X: The highlights of the COOLEST security conference in Brazil">YSTS X: The highlights of the COOLEST security conferen...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/events/75200/the-first-bsides-latin-america-this-time-in-sao-paulo/" title="The first BSides Latin America, this time in Sao Paulo">The first BSides Latin America, this time in Sao Paulo</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/events/74976/berlinsides-electrifying/" title="BerlinSides …electrifying!">BerlinSides …electrifying!</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/events/74478/infiltratecon-2016-a-lesson-in-thousand-bullet-problems/" title="InfiltrateCon 2016: a lesson in thousand-bullet problems">InfiltrateCon 2016: a lesson in thousand-bullet problem...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/events/74289/thank-you-cansecwest16/" title="Thank you, CanSecWest16!">Thank you, CanSecWest16!</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?category=27">Events</a></p>	</div></ul><!-- .topic-content --></li>
+	<li id="menu-item-58021" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-58021"><a href="https://securelist.com/all?category=22">Incidents</a><ul class="topic-content article-list">	<p class="topic-title uppercase">Incidents</p>	<li class="clear headline"><a href="https://securelist.com/blog/incidents/77562/breaking-the-weakest-link-of-the-strongest-chain/" title="Breaking The Weakest Link Of The Strongest Chain">Breaking The Weakest Link Of The Strongest Chain</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/incidents/77098/the-eyepyramid-attacks/" title="The “EyePyramid” attacks">The "EyePyramid" attacks</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/incidents/76791/new-wave-of-mirai-attacking-home-routers/" title="New wave of Mirai attacking home routers">New wave of Mirai attacking home routers</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/incidents/76728/ddos-attack-on-the-russian-banks-what-the-traffic-data-showed/" title="DDoS attack on the Russian banks: what the traffic data showed">DDoS attack on the Russian banks: what the traffic data...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/incidents/76357/trust-me-i-have-a-pen/" title="Trust me, I have a pen">Trust me, I have a pen</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/76147/on-the-strongpity-waterhole-attacks-targeting-italian-and-belgian-encryption-users/" title="On the StrongPity Waterhole Attacks Targeting Italian and Belgian Encryption Users">On the StrongPity Waterhole Attacks Targeting Italian a...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/incidents/75812/the-equation-giveaway/" title="The Equation giveaway">The Equation giveaway</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/incidents/75731/good-morning-android/" title="Good morning Android!">Good morning Android!</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/incidents/75319/an-increase-of-sophisticated-phishing-attacks-in-sweden/" title="An increase of sophisticated phishing attacks in Sweden">An increase of sophisticated phishing attacks in Sweden</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/incidents/75237/facebook-malware-tag-me-if-you-can/" title="Facebook malware: tag me if you can">Facebook malware: tag me if you can</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?category=22">Incidents</a></p>	</div></ul><!-- .topic-content --></li>
+	<li id="menu-item-58022" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-58022"><a href="https://securelist.com/all?category=105">Opinions</a><ul class="topic-content article-list">	<p class="topic-title uppercase">Opinions</p>	<li class="clear headline"><a href="https://securelist.com/blog/opinions/77454/rocket-ai-and-the-next-generation-of-av-software/" title="Rocket AI and the next generation of AV software">Rocket AI and the next generation of AV software</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/opinions/77133/machine-learning-versus-spam/" title="Machine learning versus spam">Machine learning versus spam</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/opinions/76696/lost-in-translation-or-the-peculiarities-of-cybersecurity-tests/" title="Lost in Translation, or the Peculiarities of Cybersecurity Tests">Lost in Translation, or the Peculiarities of Cybersecur...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/opinions/76351/five-myths-about-machine-learning-in-cybersecurity/" title="Five myths about machine learning in cybersecurity">Five myths about machine learning in cybersecurity</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/opinions/75297/surges-in-mobile-energy-consumption-during-usb-charging-and-data-exchange/" title="Surges in mobile energy consumption during USB charging and data exchange">Surges in mobile energy consumption during USB charging...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/mobile/74804/wired-mobile-charging-is-it-safe/" title="Wired Mobile Charging – Is it Safe?">Wired Mobile Charging – Is it Safe?</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/opinions/73829/experts-what-atm-jackpotting-malware-is/" title="Experts: what ATM jackpotting malware is">Experts: what ATM jackpotting malware is</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/opinions/73773/expert-cross-platform-adwind-rat/" title="Expert: cross-platform Adwind RAT">Expert: cross-platform Adwind RAT</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/opinions/73764/expert-how-i-hacked-my-hospital/" title="Expert: How I hacked my hospital">Expert: How I hacked my hospital</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/opinions/73160/you-cant-be-invulnerable-but-you-can-be-well-protected/" title="You can’t be invulnerable, but you can be well protected">You can't be invulnerable, but you can be well protecte...</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?category=105">Opinions</a></p>	</div></ul><!-- .topic-content --></li>
+	<li id="menu-item-58023" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-58023"><a href="https://securelist.com/all?category=24">Research</a><ul class="topic-content article-list">	<p class="topic-title uppercase">Research</p>	<li class="clear headline"><a href="https://securelist.com/blog/research/77762/petrwrap-the-new-petya-based-ransomware-used-in-targeted-attacks/" title="PetrWrap: the new Petya-based ransomware used in targeted attacks">PetrWrap: the new Petya-based ransomware used in target...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77725/from-shamoon-to-stonedrill/" title="From Shamoon to StoneDrill">From Shamoon to StoneDrill</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77621/newish-mirai-spreader-poses-new-risks/" title="New(ish) Mirai Spreader Poses New Risks">New(ish) Mirai Spreader Poses New Risks</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77403/fileless-attacks-against-enterprise-networks/" title="Fileless attacks against enterprise networks">Fileless attacks against enterprise networks</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77429/kopiluwak-a-new-javascript-payload-from-turla/" title="KopiLuwak: A New JavaScript Payload from Turla">KopiLuwak: A New JavaScript Payload from Turla</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77118/do-web-injections-exist-for-android/" title="Do web injections exist for Android?">Do web injections exist for Android?</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/76986/one-stop-shop-server-steals-data-then-offers-it-for-sale/" title="One-stop-shop: Server steals data then offers it for sale">One-stop-shop: Server steals data then offers it for sa...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/76954/is-mirai-really-as-black-as-its-being-painted/" title="Is Mirai Really as Black as It’s Being Painted?">Is Mirai Really as Black as It's Being Painted?</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/76913/the-banker-that-encrypted-files/" title="The banker that encrypted files">The banker that encrypted files</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/76862/zcash-or-the-return-of-malicious-miners/" title="Zcash, or the return of malicious miners">Zcash, or the return of malicious miners</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?category=24">Research</a></p>	</div></ul><!-- .topic-content --></li>
+	<li id="menu-item-65144" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-65144"><a href="https://securelist.com/all?category=437">Security Bulletin</a><ul class="topic-content article-list">	<p class="topic-title uppercase">Security Bulletin</p>	<div class="more">		<p>See more about <a href="https://securelist.com/all?category=437">Security Bulletin</a></p>	</div></ul><!-- .topic-content --></li>
+	<li id="menu-item-58024" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-58024"><a href="https://securelist.com/all?category=91">Spam Test</a><ul class="topic-content article-list">	<p class="topic-title uppercase">Spam Test</p>	<li class="clear headline"><a href="https://securelist.com/blog/spam-test/74489/spammers-all-geared-up-for-euro-2016/" title="Spammers all geared up for Euro 2016!">Spammers all geared up for Euro 2016!</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/spam-test/72867/arabian-tales-by-nigerians/" title="Arabian tales by ‘Nigerians’">Arabian tales by 'Nigerians'</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/spam-test/68678/spammers-against-hurricanes-and-terrorist-attacks/" title="Spammers against hurricanes and terrorist attacks">Spammers against hurricanes and terrorist attacks</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/spam-test/67344/a-false-choice-the-ebola-virus-or-malware/" title="A false choice: the Ebola virus or malware?">A false choice: the Ebola virus or malware?</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/spam-test/65660/organ-donation-home-delivery/" title="Organ donation: home delivery">Organ donation: home delivery</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/spam-test/59396/changing-characters-something-exotic-in-place-of-regular-latin-script/" title="Changing characters: Something exotic in place of regular Latin script">Changing characters: Something exotic in place of regul...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/spam-test/59390/easter-bunnies-for-all-occasions/" title="Easter Bunnies for all Occasions">Easter Bunnies for all Occasions</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/spam-test/59381/would-you-like-some-zeus-with-your-coffee/" title="Would You Like Some Zeus With Your Coffee?">Would You Like Some Zeus With Your Coffee?</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/spam-test/59375/the-omnipresent-dad/" title="The Omnipresent Dad">The Omnipresent Dad</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/spam-test/59480/fraudsters-are-playing-a-different-kind-of-card-game/" title="Fraudsters are playing a different kind of card game">Fraudsters are playing a different kind of card game</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?category=91">Spam Test</a></p>	</div></ul><!-- .topic-content --></li>
+	<li id="menu-item-58025" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-58025"><a href="https://securelist.com/all?category=25">Virus Watch</a><ul class="topic-content article-list">	<p class="topic-title uppercase">Virus Watch</p>	<li class="clear headline"><a href="https://securelist.com/blog/virus-watch/75831/brazilian-banking-trojans-meet-powershell/" title="Brazilian banking Trojans meet PowerShell">Brazilian banking Trojans meet PowerShell</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/virus-watch/74297/png-embedded-malicious-payload-hidden-in-a-png-file/" title="PNG Embedded – Malicious payload hidden in a PNG file">PNG Embedded - Malicious payload hidden in a PNG file</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/virus-watch/74150/plugx-malware-a-good-hacker-is-an-apologetic-hacker/" title="PlugX malware: A good hacker is an apologetic hacker">PlugX malware: A good hacker is an apologetic hacker</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/virus-watch/68176/chthonic-a-new-modification-of-zeus/" title="Chthonic: a new modification of ZeuS">Chthonic: a new modification of ZeuS</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/virus-watch/67661/brazilian-trojan-bankers-now-on-your-android-play-store/" title="Brazilian Trojan Bankers – now on your Android Play Store!">Brazilian Trojan Bankers – now on your Android Play Sto...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/virus-watch/67283/android-nfc-hack-allow-users-to-have-free-rides-in-public-transportation/" title="Android NFC hack allow users to have free rides in public transportation">Android NFC hack allow users to have free rides in publ...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/virus-watch/65534/android-backdoor-disguised-as-a-kaspersky-mobile-security-app/" title="Android Backdoor disguised as a Kaspersky mobile security app">Android Backdoor disguised as a Kaspersky mobile securi...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/virus-watch/65459/android-worm-on-chinese-valentines-day/" title="Android Worm on Chinese Valentine’s day">Android Worm on Chinese Valentine's day</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/virus-watch/65192/elasticsearch-vuln-abuse-on-amazon-cloud-and-more-for-ddos-and-profit/" title="elasticsearch Vuln Abuse on Amazon Cloud and More for DDoS and Profit">elasticsearch Vuln Abuse on Amazon Cloud and More for D...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/mobile/63770/fake-antivirus-attack-of-the-clones/" title="Fake antivirus – attack of the clones">Fake antivirus - attack of the clones</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?category=25">Virus Watch</a></p>	</div></ul><!-- .topic-content --></li>
+	<li id="menu-item-58026" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-58026"><a href="https://securelist.com/all?category=48">Webcasts</a><ul class="topic-content article-list">	<p class="topic-title uppercase">Webcasts</p>	<li class="clear headline"><a href="https://securelist.com/blog/webcasts/58186/forecasts-for-2014-expert-opinion/" title="Forecasts for 2014 – Expert Opinion">Forecasts for 2014 - Expert Opinion</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/webcasts/58177/corporate-threats-in-2013-the-expert-opinion/" title="Corporate Threats in 2013 – The Expert Opinion">Corporate Threats in 2013 - The Expert Opinion</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/webcasts/58170/top-security-stories-of-2013-the-expert-opinion/" title="Top security stories of 2013 – the expert opinion">Top security stories of 2013 - the expert opinion</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/webcasts/32033/lab-matters-the-death-of-browser-trust/" title="Lab Matters – The death of browser trust">Lab Matters - The death of browser trust</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/webcasts/31840/lab-matters-the-threat-from-p2p-botnets/" title="Lab Matters – The threat from P2P botnets">Lab Matters - The threat from P2P botnets</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/webcasts/31684/lab-matters-cloudy-with-a-chance-of-stolen-data/" title="Lab Matters – Cloudy with a chance of stolen data">Lab Matters - Cloudy with a chance of stolen data</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/webcasts/31294/lab-matters-brazil-banks-in-the-malware-glare/" title="Lab Matters – Brazil Banks in the Malware Glare">Lab Matters - Brazil Banks in the Malware Glare</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/webcasts/31283/lab-matters-java-exploits-percolate/" title="Lab Matters – Java exploits percolate">Lab Matters - Java exploits percolate</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/webcasts/30843/lab-matters-analyzing-the-android-security-ecosystem/" title="Lab Matters – Analyzing the Android security ecosystem">Lab Matters - Analyzing the Android security ecosystem</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/webcasts/30410/lab-matters-cyber-crime-and-cyber-war-in-latin-america/" title="Lab Matters – Cyber crime and cyber war in Latin America">Lab Matters - Cyber crime and cyber war in Latin Americ...</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?category=48">Webcasts</a></p>	</div></ul><!-- .topic-content --></li>
+	<li id="menu-item-66206" class="website-archive menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-66206"><a href="https://securelist.com/all/">Website archive</a><ul class="topic-content article-list">	<p class="topic-title uppercase">Website archive</p>	<div class="more">		<p>See more about <a href="https://securelist.com/all/">Website archive</a></p>	</div></ul><!-- .topic-content --></li>
+</ul>
+</li>
+<li id="menu-item-277" class="menu-item-tags menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-277"><a>Tags</a>
+<ul class="sub-menu">
+	<li id="menu-item-73080" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-73080"><a href="https://securelist.com/all/?tag=538">APT</a><ul class="topic-content article-list">	<p class="topic-title uppercase">APT</p>	<li class="clear headline"><a href="https://securelist.com/blog/sas/77908/lazarus-under-the-hood/" title="Lazarus Under The Hood">Lazarus Under The Hood</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/sas/77883/penquins-moonlit-maze/" title="Penquin’s Moonlit Maze">Penquin's Moonlit Maze</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77725/from-shamoon-to-stonedrill/" title="From Shamoon to StoneDrill">From Shamoon to StoneDrill</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77403/fileless-attacks-against-enterprise-networks/" title="Fileless attacks against enterprise networks">Fileless attacks against enterprise networks</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all/?tag=538">APT</a></p>	</div></ul><!-- .topic-content --></li>
+	<li id="menu-item-236" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-236"><a href="https://securelist.com/all?tag=6">Botnets</a><ul class="topic-content article-list">	<p class="topic-title uppercase">Botnets</p>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77784/the-cost-of-launching-a-ddos-attack/" title="The cost of launching a DDoS attack">The cost of launching a DDoS attack</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77621/newish-mirai-spreader-poses-new-risks/" title="New(ish) Mirai Spreader Poses New Risks">New(ish) Mirai Spreader Poses New Risks</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/quarterly-malware-reports/77412/ddos-attacks-in-q4-2016/" title="DDoS attacks in Q4 2016">DDoS attacks in Q4 2016</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/76954/is-mirai-really-as-black-as-its-being-painted/" title="Is Mirai Really as Black as It’s Being Painted?">Is Mirai Really as Black as It's Being Painted?</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?tag=6">Botnets</a></p>	</div></ul><!-- .topic-content --></li>
+	<li id="menu-item-58016" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-58016"><a href="https://securelist.com/all?tag=185">Cyber espionage</a><ul class="topic-content article-list">	<p class="topic-title uppercase">Cyber espionage</p>	<li class="clear headline"><a href="https://securelist.com/analysis/quarterly-malware-reports/76513/it-threat-evolution-q3-2016-statistics/" title="IT threat evolution Q3 2016. Statistics">IT threat evolution Q3 2016. Statistics</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/quarterly-malware-reports/76482/it-threat-evolution-q3-2016/" title="IT threat evolution Q3 2016">IT threat evolution Q3 2016</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/76147/on-the-strongpity-waterhole-attacks-targeting-italian-and-belgian-encryption-users/" title="On the StrongPity Waterhole Attacks Targeting Italian and Belgian Encryption Users">On the StrongPity Waterhole Attacks Targeting Italian a...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/incidents/75812/the-equation-giveaway/" title="The Equation giveaway">The Equation giveaway</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?tag=185">Cyber espionage</a></p>	</div></ul><!-- .topic-content --></li>
+	<li id="menu-item-58017" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-58017"><a href="https://securelist.com/all?tag=186">Cyber weapon</a><ul class="topic-content article-list">	<p class="topic-title uppercase">Cyber weapon</p>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/67483/stuxnet-zero-victims/" title="Stuxnet: Zero victims">Stuxnet: Zero victims</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/events/59405/securmatica-xxv/" title="Securmatica XXV">Securmatica XXV</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/events/59378/syscan-2014/" title="SyScan 2014">SyScan 2014</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/events/58547/rootedcon-v/" title="RootedCON V">RootedCON V</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?tag=186">Cyber weapon</a></p>	</div></ul><!-- .topic-content --></li>
+	<li id="menu-item-58015" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-58015"><a href="https://securelist.com/all?tag=69">Internet Banking</a><ul class="topic-content article-list">	<p class="topic-title uppercase">Internet Banking</p>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77623/financial-cyberthreats-in-2016/" title="Financial cyberthreats in 2016">Financial cyberthreats in 2016</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77045/holiday-2016-financial-cyberthreats-overview/" title="Holiday 2016 financial cyberthreats overview">Holiday 2016 financial cyberthreats overview</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/incidents/76728/ddos-attack-on-the-russian-banks-what-the-traffic-data-showed/" title="DDoS attack on the Russian banks: what the traffic data showed">DDoS attack on the Russian banks: what the traffic data...</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/quarterly-malware-reports/76513/it-threat-evolution-q3-2016-statistics/" title="IT threat evolution Q3 2016. Statistics">IT threat evolution Q3 2016. Statistics</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?tag=69">Internet Banking</a></p>	</div></ul><!-- .topic-content --></li>
+	<li id="menu-item-58013" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-58013"><a href="https://securelist.com/all?tag=76">Mobile Malware</a><ul class="topic-content article-list">	<p class="topic-title uppercase">Mobile Malware</p>	<li class="clear headline"><a href="https://securelist.com/analysis/kaspersky-security-bulletin/77681/mobile-malware-evolution-2016/" title="Mobile malware evolution 2016">Mobile malware evolution 2016</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/mobile/77083/expensive-free-apps/" title="Expensive free apps">Expensive free apps</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77118/do-web-injections-exist-for-android/" title="Do web injections exist for Android?">Do web injections exist for Android?</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/mobile/76969/switcher-android-joins-the-attack-the-router-club/" title="Switcher: Android joins the ‘attack-the-router’ club">Switcher: Android joins the 'attack-the-router' club</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?tag=76">Mobile Malware</a></p>	</div></ul><!-- .topic-content --></li>
+	<li id="menu-item-58014" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-58014"><a href="https://securelist.com/all?tag=29">Social Engineering</a><ul class="topic-content article-list">	<p class="topic-title uppercase">Social Engineering</p>	<li class="clear headline"><a href="https://securelist.com/analysis/kaspersky-security-bulletin/77483/kaspersky-security-bulletin-spam-and-phishing-in-2016/" title="Spam and phishing in 2016">Spam and phishing in 2016</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77576/mobile-apps-and-stealing-a-connected-car/" title="Mobile apps and stealing a connected car">Mobile apps and stealing a connected car</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/incidents/77562/breaking-the-weakest-link-of-the-strongest-chain/" title="Breaking The Weakest Link Of The Strongest Chain">Breaking The Weakest Link Of The Strongest Chain</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/kaspersky-security-bulletin/76757/kaspersky-security-bulletin-2016-story-of-the-year/" title="Kaspersky Security Bulletin 2016. The ransomware revolution">Kaspersky Security Bulletin 2016. The ransomware revolu...</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?tag=29">Social Engineering</a></p>	</div></ul><!-- .topic-content --></li>
+	<li id="menu-item-238" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-238"><a href="https://securelist.com/all?tag=8">Social networks</a><ul class="topic-content article-list">	<p class="topic-title uppercase">Social networks</p>	<li class="clear headline"><a href="https://securelist.com/analysis/kaspersky-security-bulletin/76660/kaspersky-security-bulletin-predictions-for-2017/" title="Kaspersky Security Bulletin. Predictions for 2017">Kaspersky Security Bulletin. Predictions for 2017</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/phishing/76387/adult-video-for-facebook-users/" title="‘Adult’ video for Facebook users">'Adult' video for Facebook users</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/74260/who-viewed-you-instagram-account-and-who-stole-your-password/" title="Who viewed your Instagram account? And who stole your password?">Who viewed your Instagram account? And who stole your p...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/incidents/73204/social-networks-a-bonanza-for-cybercriminals/" title="Social Networks – A Bonanza for Cybercriminals">Social Networks – A Bonanza for Cybercriminals</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?tag=8">Social networks</a></p>	</div></ul><!-- .topic-content --></li>
+	<li id="menu-item-58012" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-58012"><a href="https://securelist.com/all?tag=53">Targeted Attacks</a><ul class="topic-content article-list">	<p class="topic-title uppercase">Targeted Attacks</p>	<li class="clear headline"><a href="https://securelist.com/blog/sas/77908/lazarus-under-the-hood/" title="Lazarus Under The Hood">Lazarus Under The Hood</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/sas/77883/penquins-moonlit-maze/" title="Penquin’s Moonlit Maze">Penquin's Moonlit Maze</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77762/petrwrap-the-new-petya-based-ransomware-used-in-targeted-attacks/" title="PetrWrap: the new Petya-based ransomware used in targeted attacks">PetrWrap: the new Petya-based ransomware used in target...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77725/from-shamoon-to-stonedrill/" title="From Shamoon to StoneDrill">From Shamoon to StoneDrill</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?tag=53">Targeted Attacks</a></p>	</div></ul><!-- .topic-content --></li>
+	<li id="menu-item-57837" class="show-all-tags menu-item menu-item-type-post_type menu-item-object-page menu-item-57837"><a href="https://securelist.com/tags/">Show all tags</a><ul class="topic-content article-list">	<p class="topic-title uppercase">Show all tags</p>	<div class="more">		<p>See more about <a href="https://securelist.com/tags/">Show all tags</a></p>	</div></ul><!-- .topic-content --></li>
+</ul>
+</li>
+<li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="https://securelist.com/encyclopedia/">Encyclopedia</a></li>
+<li id="menu-item-241" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-241"><a href="https://securelist.com/statistics/">Statistics</a></li>
+<li id="menu-item-58141" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58141"><a href="https://threats.kaspersky.com/">Descriptions</a></li>
+</ul></div>				</nav><!-- #site-navigation -->
+
+<div class="menu-button">Menu<span class="touch-button"><i class="navicon">▼</i></span></div>
+				<nav class="mobile-nav">
+					<ul id="mobile-navigation" class="menu menu-mobile flexnav with-js opacity"><li class="menu-item-threats menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-226 item-with-ul"><a>Threats</a>
+<ul class="" style="display: none;">
+	<li class="topic-item detected menu-item menu-item-type-custom menu-item-object-custom menu-item-63229 item-with-ul"><a href="https://securelist.com/threats/detected-objects/">Detected Objects</a><span class="ico-detected-objects" onclick="location.href=&#39;/threats/detected-objects/&#39;"></span><ul class="threat topic-content" style="display: none;">	<li class="topic-category detected-objects item-with-ul">		<p class="topic-title uppercase">Detected Objects</p>		<ul class="article-list threats-sub-menu" style="display: none;">	<li class="clear headline"><a href="https://securelist.com/blog/sas/77908/lazarus-under-the-hood/" title="Lazarus Under The Hood">Lazarus Under The Hood</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/sas/77883/penquins-moonlit-maze/" title="Penquin’s Moonlit Maze">Penquin's Moonlit Maze</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77855/the-mistakes-of-smart-medicine/" title="The Mistakes of Smart Medicine">The Mistakes of Smart Medicine</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77842/threat-landscape-for-industrial-automation-systems-h2-2016/" title="Threat Landscape for Industrial Automation Systems, H2 2016">Threat Landscape for Industrial Automation Systems, H2 ...</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77784/the-cost-of-launching-a-ddos-attack/" title="The cost of launching a DDoS attack">The cost of launching a DDoS attack</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/sas/77813/top-8-reasons-you-dont-want-to-miss-sas-2017/" title="Top 8 Reasons You Don’t Want to Miss SAS 2017">Top 8 Reasons You Don't Want to Miss SAS 2017</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77762/petrwrap-the-new-petya-based-ransomware-used-in-targeted-attacks/" title="PetrWrap: the new Petya-based ransomware used in targeted attacks">PetrWrap: the new Petya-based ransomware used in target...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77725/from-shamoon-to-stonedrill/" title="From Shamoon to StoneDrill">From Shamoon to StoneDrill</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/kaspersky-security-bulletin/77681/mobile-malware-evolution-2016/" title="Mobile malware evolution 2016">Mobile malware evolution 2016</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77698/how-security-products-are-tested-part-1/" title="How Security Products are Tested – Part 1">How Security Products are Tested – Part 1</a></li>		</ul><!-- .article-list -->		<div class="more">			<div class="row-1 left">				<p>More articles about:</p>				<ul style="display: none;">					<li><a href="https://securelist.com/threats/detected-objects/">Detected Objects</a></li>				</ul>			</div><!-- .row-1 -->			<div class="row-2 left">				<p>More about Detected Objects:</p>				<ul style="display: none;">					<li class="left"><a href="https://securelist.com/encyclopedia/">Encyclopedia</a></li>					<li class="left"><a href="https://securelist.com/statistics/">Statistics</a></li>				</ul>			</div><!-- .row-2 -->		</div><!-- .more -->	<span class="touch-button"><i class="navicon">▼</i></span></li><!-- .detected-objects --></ul><!-- .topic-content--><span class="touch-button"><i class="navicon">▼</i></span></li>
+	<li class="topic-item spam menu-item menu-item-type-custom menu-item-object-custom menu-item-63230 item-with-ul"><a href="https://securelist.com/threats/spam-and-phishing">Spam and Phishing</a><span class="ico-spam-and-phishing" onclick="location.href=&#39;/threats/spam-and-phishing&#39;"></span><ul class="threat topic-content" style="display: none;">	<li class="topic-category spam-and-phishing item-with-ul">		<p class="topic-title uppercase">Spam and Phishing</p>		<ul class="article-list threats-sub-menu" style="display: none;">	<li class="clear headline"><a href="https://securelist.com/blog/sas/77908/lazarus-under-the-hood/" title="Lazarus Under The Hood">Lazarus Under The Hood</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/sas/77883/penquins-moonlit-maze/" title="Penquin’s Moonlit Maze">Penquin's Moonlit Maze</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77855/the-mistakes-of-smart-medicine/" title="The Mistakes of Smart Medicine">The Mistakes of Smart Medicine</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77842/threat-landscape-for-industrial-automation-systems-h2-2016/" title="Threat Landscape for Industrial Automation Systems, H2 2016">Threat Landscape for Industrial Automation Systems, H2 ...</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77784/the-cost-of-launching-a-ddos-attack/" title="The cost of launching a DDoS attack">The cost of launching a DDoS attack</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/sas/77813/top-8-reasons-you-dont-want-to-miss-sas-2017/" title="Top 8 Reasons You Don’t Want to Miss SAS 2017">Top 8 Reasons You Don't Want to Miss SAS 2017</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77762/petrwrap-the-new-petya-based-ransomware-used-in-targeted-attacks/" title="PetrWrap: the new Petya-based ransomware used in targeted attacks">PetrWrap: the new Petya-based ransomware used in target...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77725/from-shamoon-to-stonedrill/" title="From Shamoon to StoneDrill">From Shamoon to StoneDrill</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/kaspersky-security-bulletin/77681/mobile-malware-evolution-2016/" title="Mobile malware evolution 2016">Mobile malware evolution 2016</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77698/how-security-products-are-tested-part-1/" title="How Security Products are Tested – Part 1">How Security Products are Tested – Part 1</a></li>		</ul><!-- .article-list -->		<div class="more">			<div class="row-1 left">				<p>More articles about:</p>				<ul style="display: none;">					<li><a href="https://securelist.com/threats/spam-and-phishing">Spam and Phishing</a></li>				</ul>			</div><!-- .row-1 -->			<div class="row-2 left">				<p>More about Spam and Phishing:</p>				<ul style="display: none;">					<li class="left"><a href="https://securelist.com/encyclopedia/">Encyclopedia</a></li>					<li class="left"><a href="https://securelist.com/statistics/">Statistics</a></li>				</ul>			</div><!-- .row-2 -->		</div><!-- .more -->	<span class="touch-button"><i class="navicon">▼</i></span></li><!-- .spam-and-phishing --></ul><!-- .topic-content--><span class="touch-button"><i class="navicon">▼</i></span></li>
+	<li class="topic-item vulnerabilities menu-item menu-item-type-custom menu-item-object-custom menu-item-63231 item-with-ul"><a href="https://securelist.com/threats/vulnerabilities-and-hackers">Vulnerabilities and Hackers</a><span class="ico-vulnerabilities-and-hackers" onclick="location.href=&#39;/threats/vulnerabilities-and-hackers&#39;"></span><ul class="threat topic-content" style="display: none;">	<li class="topic-category vulnerabilities-and-hackers item-with-ul">		<p class="topic-title uppercase">Vulnerabilities and Hackers</p>		<ul class="article-list threats-sub-menu" style="display: none;">	<li class="clear headline"><a href="https://securelist.com/blog/sas/77908/lazarus-under-the-hood/" title="Lazarus Under The Hood">Lazarus Under The Hood</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/sas/77883/penquins-moonlit-maze/" title="Penquin’s Moonlit Maze">Penquin's Moonlit Maze</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77855/the-mistakes-of-smart-medicine/" title="The Mistakes of Smart Medicine">The Mistakes of Smart Medicine</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77842/threat-landscape-for-industrial-automation-systems-h2-2016/" title="Threat Landscape for Industrial Automation Systems, H2 2016">Threat Landscape for Industrial Automation Systems, H2 ...</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77784/the-cost-of-launching-a-ddos-attack/" title="The cost of launching a DDoS attack">The cost of launching a DDoS attack</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/sas/77813/top-8-reasons-you-dont-want-to-miss-sas-2017/" title="Top 8 Reasons You Don’t Want to Miss SAS 2017">Top 8 Reasons You Don't Want to Miss SAS 2017</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77762/petrwrap-the-new-petya-based-ransomware-used-in-targeted-attacks/" title="PetrWrap: the new Petya-based ransomware used in targeted attacks">PetrWrap: the new Petya-based ransomware used in target...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77725/from-shamoon-to-stonedrill/" title="From Shamoon to StoneDrill">From Shamoon to StoneDrill</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/kaspersky-security-bulletin/77681/mobile-malware-evolution-2016/" title="Mobile malware evolution 2016">Mobile malware evolution 2016</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77698/how-security-products-are-tested-part-1/" title="How Security Products are Tested – Part 1">How Security Products are Tested – Part 1</a></li>		</ul><!-- .article-list -->		<div class="more">			<div class="row-1 left">				<p>More articles about:</p>				<ul style="display: none;">					<li><a href="https://securelist.com/threats/vulnerabilities-and-hackers">Vulnerabilities and Hackers</a></li>				</ul>			</div><!-- .row-1 -->			<div class="row-2 left">				<p>More about Vulnerabilities and Hackers:</p>				<ul style="display: none;">					<li class="left"><a href="https://securelist.com/encyclopedia/">Encyclopedia</a></li>					<li class="left"><a href="https://securelist.com/statistics/">Statistics</a></li>				</ul>			</div><!-- .row-2 -->		</div><!-- .more -->	<span class="touch-button"><i class="navicon">▼</i></span></li><!-- .vulnerabilities-and-hackers --></ul><!-- .topic-content--><span class="touch-button"><i class="navicon">▼</i></span></li>
+	<li class="topic-item internal-threats menu-item menu-item-type-custom menu-item-object-custom menu-item-63232 item-with-ul"><a href="https://securelist.com/threats/internal-threats">Internal Threats</a><span class="ico-internal-threats" onclick="location.href=&#39;/threats/internal-threats&#39;"></span><ul class="threat topic-content" style="display: none;">	<li class="topic-category internal-threats item-with-ul">		<p class="topic-title uppercase">Internal Threats</p>		<ul class="article-list threats-sub-menu" style="display: none;">	<li class="clear headline"><a href="https://securelist.com/blog/sas/77908/lazarus-under-the-hood/" title="Lazarus Under The Hood">Lazarus Under The Hood</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/sas/77883/penquins-moonlit-maze/" title="Penquin’s Moonlit Maze">Penquin's Moonlit Maze</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77855/the-mistakes-of-smart-medicine/" title="The Mistakes of Smart Medicine">The Mistakes of Smart Medicine</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77842/threat-landscape-for-industrial-automation-systems-h2-2016/" title="Threat Landscape for Industrial Automation Systems, H2 2016">Threat Landscape for Industrial Automation Systems, H2 ...</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77784/the-cost-of-launching-a-ddos-attack/" title="The cost of launching a DDoS attack">The cost of launching a DDoS attack</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/sas/77813/top-8-reasons-you-dont-want-to-miss-sas-2017/" title="Top 8 Reasons You Don’t Want to Miss SAS 2017">Top 8 Reasons You Don't Want to Miss SAS 2017</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77762/petrwrap-the-new-petya-based-ransomware-used-in-targeted-attacks/" title="PetrWrap: the new Petya-based ransomware used in targeted attacks">PetrWrap: the new Petya-based ransomware used in target...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77725/from-shamoon-to-stonedrill/" title="From Shamoon to StoneDrill">From Shamoon to StoneDrill</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/kaspersky-security-bulletin/77681/mobile-malware-evolution-2016/" title="Mobile malware evolution 2016">Mobile malware evolution 2016</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77698/how-security-products-are-tested-part-1/" title="How Security Products are Tested – Part 1">How Security Products are Tested – Part 1</a></li>		</ul><!-- .article-list -->		<div class="more">			<div class="row-1 left">				<p>More articles about:</p>				<ul style="display: none;">					<li><a href="https://securelist.com/threats/internal-threats">Internal Threats</a></li>				</ul>			</div><!-- .row-1 -->			<div class="row-2 left">				<p>More about Internal Threats:</p>				<ul style="display: none;">					<li class="left"><a href="https://securelist.com/encyclopedia/">Encyclopedia</a></li>					<li class="left"><a href="https://securelist.com/statistics/">Statistics</a></li>				</ul>			</div><!-- .row-2 -->		</div><!-- .more -->	<span class="touch-button"><i class="navicon">▼</i></span></li><!-- .internal-threats --></ul><!-- .topic-content--><span class="touch-button"><i class="navicon">▼</i></span></li>
+</ul>
+<span class="touch-button"><i class="navicon">▼</i></span></li>
+<li class="menu-item-categories menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-230 item-with-ul"><a>Categories</a>
+<ul class="" style="display: none;">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-58019 item-with-ul"><a href="https://securelist.com/all?category=27">Events</a><ul class="topic-content article-list" style="display: none;">	<p class="topic-title uppercase">Events</p>	<li class="clear headline"><a href="https://securelist.com/blog/events/77014/update-from-the-chaos-33c3-in-hamburg/" title="Update from the chaos – 33c3 in Hamburg">Update from the chaos – 33c3 in Hamburg</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/events/76942/notes-from-hitcon-pacific-2016/" title="Notes from HITCON Pacific 2016">Notes from HITCON Pacific 2016</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/events/76742/caribbean-scuba-diving-with-it-security-in-mind/" title="Caribbean scuba diving with IT-security in mind">Caribbean scuba diving with IT-security in mind</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/events/75730/conference-report-hitcon-2016-in-taipei/" title="Conference Report: HITCON 2016 in Taipei">Conference Report: HITCON 2016 in Taipei</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/events/75597/blackhat-usa-2016/" title="Blackhat USA 2016">Blackhat USA 2016</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/events/75230/ysts-x-the-highlights-of-the-coolest-security-conference-in-brazil/" title="YSTS X: The highlights of the COOLEST security conference in Brazil">YSTS X: The highlights of the COOLEST security conferen...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/events/75200/the-first-bsides-latin-america-this-time-in-sao-paulo/" title="The first BSides Latin America, this time in Sao Paulo">The first BSides Latin America, this time in Sao Paulo</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/events/74976/berlinsides-electrifying/" title="BerlinSides …electrifying!">BerlinSides …electrifying!</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/events/74478/infiltratecon-2016-a-lesson-in-thousand-bullet-problems/" title="InfiltrateCon 2016: a lesson in thousand-bullet problems">InfiltrateCon 2016: a lesson in thousand-bullet problem...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/events/74289/thank-you-cansecwest16/" title="Thank you, CanSecWest16!">Thank you, CanSecWest16!</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?category=27">Events</a></p>	</div></ul><!-- .topic-content --><span class="touch-button"><i class="navicon">▼</i></span></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-58021 item-with-ul"><a href="https://securelist.com/all?category=22">Incidents</a><ul class="topic-content article-list" style="display: none;">	<p class="topic-title uppercase">Incidents</p>	<li class="clear headline"><a href="https://securelist.com/blog/incidents/77562/breaking-the-weakest-link-of-the-strongest-chain/" title="Breaking The Weakest Link Of The Strongest Chain">Breaking The Weakest Link Of The Strongest Chain</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/incidents/77098/the-eyepyramid-attacks/" title="The “EyePyramid” attacks">The "EyePyramid" attacks</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/incidents/76791/new-wave-of-mirai-attacking-home-routers/" title="New wave of Mirai attacking home routers">New wave of Mirai attacking home routers</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/incidents/76728/ddos-attack-on-the-russian-banks-what-the-traffic-data-showed/" title="DDoS attack on the Russian banks: what the traffic data showed">DDoS attack on the Russian banks: what the traffic data...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/incidents/76357/trust-me-i-have-a-pen/" title="Trust me, I have a pen">Trust me, I have a pen</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/76147/on-the-strongpity-waterhole-attacks-targeting-italian-and-belgian-encryption-users/" title="On the StrongPity Waterhole Attacks Targeting Italian and Belgian Encryption Users">On the StrongPity Waterhole Attacks Targeting Italian a...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/incidents/75812/the-equation-giveaway/" title="The Equation giveaway">The Equation giveaway</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/incidents/75731/good-morning-android/" title="Good morning Android!">Good morning Android!</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/incidents/75319/an-increase-of-sophisticated-phishing-attacks-in-sweden/" title="An increase of sophisticated phishing attacks in Sweden">An increase of sophisticated phishing attacks in Sweden</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/incidents/75237/facebook-malware-tag-me-if-you-can/" title="Facebook malware: tag me if you can">Facebook malware: tag me if you can</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?category=22">Incidents</a></p>	</div></ul><!-- .topic-content --><span class="touch-button"><i class="navicon">▼</i></span></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-58022 item-with-ul"><a href="https://securelist.com/all?category=105">Opinions</a><ul class="topic-content article-list" style="display: none;">	<p class="topic-title uppercase">Opinions</p>	<li class="clear headline"><a href="https://securelist.com/blog/opinions/77454/rocket-ai-and-the-next-generation-of-av-software/" title="Rocket AI and the next generation of AV software">Rocket AI and the next generation of AV software</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/opinions/77133/machine-learning-versus-spam/" title="Machine learning versus spam">Machine learning versus spam</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/opinions/76696/lost-in-translation-or-the-peculiarities-of-cybersecurity-tests/" title="Lost in Translation, or the Peculiarities of Cybersecurity Tests">Lost in Translation, or the Peculiarities of Cybersecur...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/opinions/76351/five-myths-about-machine-learning-in-cybersecurity/" title="Five myths about machine learning in cybersecurity">Five myths about machine learning in cybersecurity</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/opinions/75297/surges-in-mobile-energy-consumption-during-usb-charging-and-data-exchange/" title="Surges in mobile energy consumption during USB charging and data exchange">Surges in mobile energy consumption during USB charging...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/mobile/74804/wired-mobile-charging-is-it-safe/" title="Wired Mobile Charging – Is it Safe?">Wired Mobile Charging – Is it Safe?</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/opinions/73829/experts-what-atm-jackpotting-malware-is/" title="Experts: what ATM jackpotting malware is">Experts: what ATM jackpotting malware is</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/opinions/73773/expert-cross-platform-adwind-rat/" title="Expert: cross-platform Adwind RAT">Expert: cross-platform Adwind RAT</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/opinions/73764/expert-how-i-hacked-my-hospital/" title="Expert: How I hacked my hospital">Expert: How I hacked my hospital</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/opinions/73160/you-cant-be-invulnerable-but-you-can-be-well-protected/" title="You can’t be invulnerable, but you can be well protected">You can't be invulnerable, but you can be well protecte...</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?category=105">Opinions</a></p>	</div></ul><!-- .topic-content --><span class="touch-button"><i class="navicon">▼</i></span></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-58023 item-with-ul"><a href="https://securelist.com/all?category=24">Research</a><ul class="topic-content article-list" style="display: none;">	<p class="topic-title uppercase">Research</p>	<li class="clear headline"><a href="https://securelist.com/blog/research/77762/petrwrap-the-new-petya-based-ransomware-used-in-targeted-attacks/" title="PetrWrap: the new Petya-based ransomware used in targeted attacks">PetrWrap: the new Petya-based ransomware used in target...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77725/from-shamoon-to-stonedrill/" title="From Shamoon to StoneDrill">From Shamoon to StoneDrill</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77621/newish-mirai-spreader-poses-new-risks/" title="New(ish) Mirai Spreader Poses New Risks">New(ish) Mirai Spreader Poses New Risks</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77403/fileless-attacks-against-enterprise-networks/" title="Fileless attacks against enterprise networks">Fileless attacks against enterprise networks</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77429/kopiluwak-a-new-javascript-payload-from-turla/" title="KopiLuwak: A New JavaScript Payload from Turla">KopiLuwak: A New JavaScript Payload from Turla</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77118/do-web-injections-exist-for-android/" title="Do web injections exist for Android?">Do web injections exist for Android?</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/76986/one-stop-shop-server-steals-data-then-offers-it-for-sale/" title="One-stop-shop: Server steals data then offers it for sale">One-stop-shop: Server steals data then offers it for sa...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/76954/is-mirai-really-as-black-as-its-being-painted/" title="Is Mirai Really as Black as It’s Being Painted?">Is Mirai Really as Black as It's Being Painted?</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/76913/the-banker-that-encrypted-files/" title="The banker that encrypted files">The banker that encrypted files</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/76862/zcash-or-the-return-of-malicious-miners/" title="Zcash, or the return of malicious miners">Zcash, or the return of malicious miners</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?category=24">Research</a></p>	</div></ul><!-- .topic-content --><span class="touch-button"><i class="navicon">▼</i></span></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-65144 item-with-ul"><a href="https://securelist.com/all?category=437">Security Bulletin</a><ul class="topic-content article-list" style="display: none;">	<p class="topic-title uppercase">Security Bulletin</p>	<div class="more">		<p>See more about <a href="https://securelist.com/all?category=437">Security Bulletin</a></p>	</div></ul><!-- .topic-content --><span class="touch-button"><i class="navicon">▼</i></span></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-58024 item-with-ul"><a href="https://securelist.com/all?category=91">Spam Test</a><ul class="topic-content article-list" style="display: none;">	<p class="topic-title uppercase">Spam Test</p>	<li class="clear headline"><a href="https://securelist.com/blog/spam-test/74489/spammers-all-geared-up-for-euro-2016/" title="Spammers all geared up for Euro 2016!">Spammers all geared up for Euro 2016!</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/spam-test/72867/arabian-tales-by-nigerians/" title="Arabian tales by ‘Nigerians’">Arabian tales by 'Nigerians'</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/spam-test/68678/spammers-against-hurricanes-and-terrorist-attacks/" title="Spammers against hurricanes and terrorist attacks">Spammers against hurricanes and terrorist attacks</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/spam-test/67344/a-false-choice-the-ebola-virus-or-malware/" title="A false choice: the Ebola virus or malware?">A false choice: the Ebola virus or malware?</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/spam-test/65660/organ-donation-home-delivery/" title="Organ donation: home delivery">Organ donation: home delivery</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/spam-test/59396/changing-characters-something-exotic-in-place-of-regular-latin-script/" title="Changing characters: Something exotic in place of regular Latin script">Changing characters: Something exotic in place of regul...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/spam-test/59390/easter-bunnies-for-all-occasions/" title="Easter Bunnies for all Occasions">Easter Bunnies for all Occasions</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/spam-test/59381/would-you-like-some-zeus-with-your-coffee/" title="Would You Like Some Zeus With Your Coffee?">Would You Like Some Zeus With Your Coffee?</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/spam-test/59375/the-omnipresent-dad/" title="The Omnipresent Dad">The Omnipresent Dad</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/spam-test/59480/fraudsters-are-playing-a-different-kind-of-card-game/" title="Fraudsters are playing a different kind of card game">Fraudsters are playing a different kind of card game</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?category=91">Spam Test</a></p>	</div></ul><!-- .topic-content --><span class="touch-button"><i class="navicon">▼</i></span></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-58025 item-with-ul"><a href="https://securelist.com/all?category=25">Virus Watch</a><ul class="topic-content article-list" style="display: none;">	<p class="topic-title uppercase">Virus Watch</p>	<li class="clear headline"><a href="https://securelist.com/blog/virus-watch/75831/brazilian-banking-trojans-meet-powershell/" title="Brazilian banking Trojans meet PowerShell">Brazilian banking Trojans meet PowerShell</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/virus-watch/74297/png-embedded-malicious-payload-hidden-in-a-png-file/" title="PNG Embedded – Malicious payload hidden in a PNG file">PNG Embedded - Malicious payload hidden in a PNG file</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/virus-watch/74150/plugx-malware-a-good-hacker-is-an-apologetic-hacker/" title="PlugX malware: A good hacker is an apologetic hacker">PlugX malware: A good hacker is an apologetic hacker</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/virus-watch/68176/chthonic-a-new-modification-of-zeus/" title="Chthonic: a new modification of ZeuS">Chthonic: a new modification of ZeuS</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/virus-watch/67661/brazilian-trojan-bankers-now-on-your-android-play-store/" title="Brazilian Trojan Bankers – now on your Android Play Store!">Brazilian Trojan Bankers – now on your Android Play Sto...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/virus-watch/67283/android-nfc-hack-allow-users-to-have-free-rides-in-public-transportation/" title="Android NFC hack allow users to have free rides in public transportation">Android NFC hack allow users to have free rides in publ...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/virus-watch/65534/android-backdoor-disguised-as-a-kaspersky-mobile-security-app/" title="Android Backdoor disguised as a Kaspersky mobile security app">Android Backdoor disguised as a Kaspersky mobile securi...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/virus-watch/65459/android-worm-on-chinese-valentines-day/" title="Android Worm on Chinese Valentine’s day">Android Worm on Chinese Valentine's day</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/virus-watch/65192/elasticsearch-vuln-abuse-on-amazon-cloud-and-more-for-ddos-and-profit/" title="elasticsearch Vuln Abuse on Amazon Cloud and More for DDoS and Profit">elasticsearch Vuln Abuse on Amazon Cloud and More for D...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/mobile/63770/fake-antivirus-attack-of-the-clones/" title="Fake antivirus – attack of the clones">Fake antivirus - attack of the clones</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?category=25">Virus Watch</a></p>	</div></ul><!-- .topic-content --><span class="touch-button"><i class="navicon">▼</i></span></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-58026 item-with-ul"><a href="https://securelist.com/all?category=48">Webcasts</a><ul class="topic-content article-list" style="display: none;">	<p class="topic-title uppercase">Webcasts</p>	<li class="clear headline"><a href="https://securelist.com/blog/webcasts/58186/forecasts-for-2014-expert-opinion/" title="Forecasts for 2014 – Expert Opinion">Forecasts for 2014 - Expert Opinion</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/webcasts/58177/corporate-threats-in-2013-the-expert-opinion/" title="Corporate Threats in 2013 – The Expert Opinion">Corporate Threats in 2013 - The Expert Opinion</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/webcasts/58170/top-security-stories-of-2013-the-expert-opinion/" title="Top security stories of 2013 – the expert opinion">Top security stories of 2013 - the expert opinion</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/webcasts/32033/lab-matters-the-death-of-browser-trust/" title="Lab Matters – The death of browser trust">Lab Matters - The death of browser trust</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/webcasts/31840/lab-matters-the-threat-from-p2p-botnets/" title="Lab Matters – The threat from P2P botnets">Lab Matters - The threat from P2P botnets</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/webcasts/31684/lab-matters-cloudy-with-a-chance-of-stolen-data/" title="Lab Matters – Cloudy with a chance of stolen data">Lab Matters - Cloudy with a chance of stolen data</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/webcasts/31294/lab-matters-brazil-banks-in-the-malware-glare/" title="Lab Matters – Brazil Banks in the Malware Glare">Lab Matters - Brazil Banks in the Malware Glare</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/webcasts/31283/lab-matters-java-exploits-percolate/" title="Lab Matters – Java exploits percolate">Lab Matters - Java exploits percolate</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/webcasts/30843/lab-matters-analyzing-the-android-security-ecosystem/" title="Lab Matters – Analyzing the Android security ecosystem">Lab Matters - Analyzing the Android security ecosystem</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/webcasts/30410/lab-matters-cyber-crime-and-cyber-war-in-latin-america/" title="Lab Matters – Cyber crime and cyber war in Latin America">Lab Matters - Cyber crime and cyber war in Latin Americ...</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?category=48">Webcasts</a></p>	</div></ul><!-- .topic-content --><span class="touch-button"><i class="navicon">▼</i></span></li>
+	<li class="website-archive menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-66206 item-with-ul"><a href="https://securelist.com/all/">Website archive</a><ul class="topic-content article-list" style="display: none;">	<p class="topic-title uppercase">Website archive</p>	<div class="more">		<p>See more about <a href="https://securelist.com/all/">Website archive</a></p>	</div></ul><!-- .topic-content --><span class="touch-button"><i class="navicon">▼</i></span></li>
+</ul>
+<span class="touch-button"><i class="navicon">▼</i></span></li>
+<li class="menu-item-tags menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-277 item-with-ul"><a>Tags</a>
+<ul class="" style="display: none;">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-73080 item-with-ul"><a href="https://securelist.com/all/?tag=538">APT</a><ul class="topic-content article-list" style="display: none;">	<p class="topic-title uppercase">APT</p>	<li class="clear headline"><a href="https://securelist.com/blog/sas/77908/lazarus-under-the-hood/" title="Lazarus Under The Hood">Lazarus Under The Hood</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/sas/77883/penquins-moonlit-maze/" title="Penquin’s Moonlit Maze">Penquin's Moonlit Maze</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77725/from-shamoon-to-stonedrill/" title="From Shamoon to StoneDrill">From Shamoon to StoneDrill</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77403/fileless-attacks-against-enterprise-networks/" title="Fileless attacks against enterprise networks">Fileless attacks against enterprise networks</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all/?tag=538">APT</a></p>	</div></ul><!-- .topic-content --><span class="touch-button"><i class="navicon">▼</i></span></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-236 item-with-ul"><a href="https://securelist.com/all?tag=6">Botnets</a><ul class="topic-content article-list" style="display: none;">	<p class="topic-title uppercase">Botnets</p>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77784/the-cost-of-launching-a-ddos-attack/" title="The cost of launching a DDoS attack">The cost of launching a DDoS attack</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77621/newish-mirai-spreader-poses-new-risks/" title="New(ish) Mirai Spreader Poses New Risks">New(ish) Mirai Spreader Poses New Risks</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/quarterly-malware-reports/77412/ddos-attacks-in-q4-2016/" title="DDoS attacks in Q4 2016">DDoS attacks in Q4 2016</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/76954/is-mirai-really-as-black-as-its-being-painted/" title="Is Mirai Really as Black as It’s Being Painted?">Is Mirai Really as Black as It's Being Painted?</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?tag=6">Botnets</a></p>	</div></ul><!-- .topic-content --><span class="touch-button"><i class="navicon">▼</i></span></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-58016 item-with-ul"><a href="https://securelist.com/all?tag=185">Cyber espionage</a><ul class="topic-content article-list" style="display: none;">	<p class="topic-title uppercase">Cyber espionage</p>	<li class="clear headline"><a href="https://securelist.com/analysis/quarterly-malware-reports/76513/it-threat-evolution-q3-2016-statistics/" title="IT threat evolution Q3 2016. Statistics">IT threat evolution Q3 2016. Statistics</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/quarterly-malware-reports/76482/it-threat-evolution-q3-2016/" title="IT threat evolution Q3 2016">IT threat evolution Q3 2016</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/76147/on-the-strongpity-waterhole-attacks-targeting-italian-and-belgian-encryption-users/" title="On the StrongPity Waterhole Attacks Targeting Italian and Belgian Encryption Users">On the StrongPity Waterhole Attacks Targeting Italian a...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/incidents/75812/the-equation-giveaway/" title="The Equation giveaway">The Equation giveaway</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?tag=185">Cyber espionage</a></p>	</div></ul><!-- .topic-content --><span class="touch-button"><i class="navicon">▼</i></span></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-58017 item-with-ul"><a href="https://securelist.com/all?tag=186">Cyber weapon</a><ul class="topic-content article-list" style="display: none;">	<p class="topic-title uppercase">Cyber weapon</p>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/67483/stuxnet-zero-victims/" title="Stuxnet: Zero victims">Stuxnet: Zero victims</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/events/59405/securmatica-xxv/" title="Securmatica XXV">Securmatica XXV</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/events/59378/syscan-2014/" title="SyScan 2014">SyScan 2014</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/events/58547/rootedcon-v/" title="RootedCON V">RootedCON V</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?tag=186">Cyber weapon</a></p>	</div></ul><!-- .topic-content --><span class="touch-button"><i class="navicon">▼</i></span></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-58015 item-with-ul"><a href="https://securelist.com/all?tag=69">Internet Banking</a><ul class="topic-content article-list" style="display: none;">	<p class="topic-title uppercase">Internet Banking</p>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77623/financial-cyberthreats-in-2016/" title="Financial cyberthreats in 2016">Financial cyberthreats in 2016</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77045/holiday-2016-financial-cyberthreats-overview/" title="Holiday 2016 financial cyberthreats overview">Holiday 2016 financial cyberthreats overview</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/incidents/76728/ddos-attack-on-the-russian-banks-what-the-traffic-data-showed/" title="DDoS attack on the Russian banks: what the traffic data showed">DDoS attack on the Russian banks: what the traffic data...</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/quarterly-malware-reports/76513/it-threat-evolution-q3-2016-statistics/" title="IT threat evolution Q3 2016. Statistics">IT threat evolution Q3 2016. Statistics</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?tag=69">Internet Banking</a></p>	</div></ul><!-- .topic-content --><span class="touch-button"><i class="navicon">▼</i></span></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-58013 item-with-ul"><a href="https://securelist.com/all?tag=76">Mobile Malware</a><ul class="topic-content article-list" style="display: none;">	<p class="topic-title uppercase">Mobile Malware</p>	<li class="clear headline"><a href="https://securelist.com/analysis/kaspersky-security-bulletin/77681/mobile-malware-evolution-2016/" title="Mobile malware evolution 2016">Mobile malware evolution 2016</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/mobile/77083/expensive-free-apps/" title="Expensive free apps">Expensive free apps</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77118/do-web-injections-exist-for-android/" title="Do web injections exist for Android?">Do web injections exist for Android?</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/mobile/76969/switcher-android-joins-the-attack-the-router-club/" title="Switcher: Android joins the ‘attack-the-router’ club">Switcher: Android joins the 'attack-the-router' club</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?tag=76">Mobile Malware</a></p>	</div></ul><!-- .topic-content --><span class="touch-button"><i class="navicon">▼</i></span></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-58014 item-with-ul"><a href="https://securelist.com/all?tag=29">Social Engineering</a><ul class="topic-content article-list" style="display: none;">	<p class="topic-title uppercase">Social Engineering</p>	<li class="clear headline"><a href="https://securelist.com/analysis/kaspersky-security-bulletin/77483/kaspersky-security-bulletin-spam-and-phishing-in-2016/" title="Spam and phishing in 2016">Spam and phishing in 2016</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/publications/77576/mobile-apps-and-stealing-a-connected-car/" title="Mobile apps and stealing a connected car">Mobile apps and stealing a connected car</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/incidents/77562/breaking-the-weakest-link-of-the-strongest-chain/" title="Breaking The Weakest Link Of The Strongest Chain">Breaking The Weakest Link Of The Strongest Chain</a></li>	<li class="clear headline"><a href="https://securelist.com/analysis/kaspersky-security-bulletin/76757/kaspersky-security-bulletin-2016-story-of-the-year/" title="Kaspersky Security Bulletin 2016. The ransomware revolution">Kaspersky Security Bulletin 2016. The ransomware revolu...</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?tag=29">Social Engineering</a></p>	</div></ul><!-- .topic-content --><span class="touch-button"><i class="navicon">▼</i></span></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-238 item-with-ul"><a href="https://securelist.com/all?tag=8">Social networks</a><ul class="topic-content article-list" style="display: none;">	<p class="topic-title uppercase">Social networks</p>	<li class="clear headline"><a href="https://securelist.com/analysis/kaspersky-security-bulletin/76660/kaspersky-security-bulletin-predictions-for-2017/" title="Kaspersky Security Bulletin. Predictions for 2017">Kaspersky Security Bulletin. Predictions for 2017</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/phishing/76387/adult-video-for-facebook-users/" title="‘Adult’ video for Facebook users">'Adult' video for Facebook users</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/74260/who-viewed-you-instagram-account-and-who-stole-your-password/" title="Who viewed your Instagram account? And who stole your password?">Who viewed your Instagram account? And who stole your p...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/incidents/73204/social-networks-a-bonanza-for-cybercriminals/" title="Social Networks – A Bonanza for Cybercriminals">Social Networks – A Bonanza for Cybercriminals</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?tag=8">Social networks</a></p>	</div></ul><!-- .topic-content --><span class="touch-button"><i class="navicon">▼</i></span></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-58012 item-with-ul"><a href="https://securelist.com/all?tag=53">Targeted Attacks</a><ul class="topic-content article-list" style="display: none;">	<p class="topic-title uppercase">Targeted Attacks</p>	<li class="clear headline"><a href="https://securelist.com/blog/sas/77908/lazarus-under-the-hood/" title="Lazarus Under The Hood">Lazarus Under The Hood</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/sas/77883/penquins-moonlit-maze/" title="Penquin’s Moonlit Maze">Penquin's Moonlit Maze</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77762/petrwrap-the-new-petya-based-ransomware-used-in-targeted-attacks/" title="PetrWrap: the new Petya-based ransomware used in targeted attacks">PetrWrap: the new Petya-based ransomware used in target...</a></li>	<li class="clear headline"><a href="https://securelist.com/blog/research/77725/from-shamoon-to-stonedrill/" title="From Shamoon to StoneDrill">From Shamoon to StoneDrill</a></li>	<div class="more">		<p>See more about <a href="https://securelist.com/all?tag=53">Targeted Attacks</a></p>	</div></ul><!-- .topic-content --><span class="touch-button"><i class="navicon">▼</i></span></li>
+	<li class="show-all-tags menu-item menu-item-type-post_type menu-item-object-page menu-item-57837 item-with-ul"><a href="https://securelist.com/tags/">Show all tags</a><ul class="topic-content article-list" style="display: none;">	<p class="topic-title uppercase">Show all tags</p>	<div class="more">		<p>See more about <a href="https://securelist.com/tags/">Show all tags</a></p>	</div></ul><!-- .topic-content --><span class="touch-button"><i class="navicon">▼</i></span></li>
+</ul>
+<span class="touch-button"><i class="navicon">▼</i></span></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="https://securelist.com/encyclopedia/">Encyclopedia</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-241"><a href="https://securelist.com/statistics/">Statistics</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58141"><a href="https://threats.kaspersky.com/">Descriptions</a></li>
+</ul>				</nav><!-- #site-navigation -->
+
+			</div><!-- .header-col-3 -->
+
+		</header><!-- #masthead -->
+
+		<div id="main" class="site-main">
+
+	<div id="primary" class="grid col-6 content-area">
+		<main id="content" class="site-content" role="main" itemscope="" itemtype="http://schema.org/Blog">
+				
+
+
+<article id="post-64361" class="post-64361 post type-post status-publish format-standard has-post-thumbnail category-analysis category-publications tag-botnets tag-dos-attacks tag-dns-amplification tag-linux threat-category-detected-objects securelist-post" itemscope="" itemid="https://securelist.com/analysis/publications/64361/versatile-ddos-trojan-for-linux/" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+
+	<header class="col-5 entry-header">
+
+		<div class="right entry-print">
+			<a title="Print this page" href="javascript:window.print()"><span class="ico-print"></span></a>
+		</div>
+
+		<div class="col-4 title-wrap">
+			<h1 class="entry-title" itemprop="name">Versatile DDoS Trojan for Linux</h1>
+					</div><!-- .title-wrap -->
+
+		<div class="clear entry-meta">
+			<div class="entry-author" itemprop="author">
+				By <a href="https://securelist.com/author/mikhailk/" title="Posts by Mikhail Kuzin" class="author url fn" rel="author">Mikhail Kuzin</a>  on <time itemprop="datePublished" datetime="2014-07-10T08:40:21+00:00">July 10, 2014. 8:40 am</time>			</div>
+			<div class="clear uppercase entry-category" itemprop="keywords">
+				<a href="https://securelist.com/all?category=159" rel="category tag">Publications</a>			</div>
+		</div><!-- .entry-meta -->
+
+		<div class="entry-social entry-social-right">
+			<div class="social-likes social-likes_visible social-likes_ready" data-title="Versatile DDoS Trojan for Linux" data-url="https://securelist.com/analysis/publications/64361/versatile-ddos-trojan-for-linux/" data-counters="yes" data-zeroes="yes"><div class="social-likes__widget social-likes__widget_facebook" title="Share via Facebook"><span class="social-likes__button social-likes__button_facebook"><span class="social-likes__icon social-likes__icon_facebook"></span>Facebook</span><span class="social-likes__counter social-likes__counter_facebook">57</span></div>
+<div class="social-likes__widget social-likes__widget_plusone" title="Share via Google"><span class="social-likes__button social-likes__button_plusone"><span class="social-likes__icon social-likes__icon_plusone"></span>Google</span><span class="social-likes__counter social-likes__counter_plusone">7</span></div>
+<div class="social-likes__widget social-likes__widget_twitter" title="Share via Twitter"><span class="social-likes__button social-likes__button_twitter"><span class="social-likes__icon social-likes__icon_twitter"></span>Twitter</span><span class="social-likes__counter social-likes__counter_twitter">0</span></div></div>		</div><!-- .entry-social -->
+
+	</header><!-- .entry-header -->
+
+	<div class="columnwrapper">
+	<div class="sevenforty grid-pad-30 entry-wrap">
+
+		
+		<div class="uppercase entry-tags">
+			<a href="https://securelist.com/all?tag=6" rel="tag">Botnets</a> <a href="https://securelist.com/all?tag=533" rel="tag">DDoS-attacks</a> <a href="https://securelist.com/all?tag=526" rel="tag">DNS Amplification</a> <a href="https://securelist.com/all?tag=35" rel="tag">Linux</a>		</div>
+
+					<div id="undefined-sticky-wrapper" class="sticky-wrapper is-sticky" style="height: 60px;"><div class="post-toc toc-container toc-sticky scrolled" style="top: 12801px; position: fixed;">
+				<div class="toc-title-off toc-title">
+					<span class="title">Contents</span>
+				</div>
+				<ul class="toc-page-headers toc-list inviewport"><li class="toc-header toc-header-h2"><a href="https://securelist.com/analysis/publications/64361/versatile-ddos-trojan-for-linux/#backdoor-linux-mayday-f-atddd">Backdoor.Linux.Mayday.f (atddd)</a></li><li class="toc-header toc-header-h2"><a href="https://securelist.com/analysis/publications/64361/versatile-ddos-trojan-for-linux/#backdoor-linux-ganiw-a-cupsdd">Backdoor.Linux.Ganiw.a (cupsdd)</a></li><li class="toc-header toc-header-h2"><a href="https://securelist.com/analysis/publications/64361/versatile-ddos-trojan-for-linux/#backdoor-linux-ganiw-a-cupsddh">Backdoor.Linux.Ganiw.a (cupsddh)</a></li><li class="toc-header toc-header-h3"><a href="https://securelist.com/analysis/publications/64361/versatile-ddos-trojan-for-linux/#kernel-mode">Kernel mode</a></li><li class="toc-header toc-header-h3"><a href="https://securelist.com/analysis/publications/64361/versatile-ddos-trojan-for-linux/#normal-attack-mode">Normal attack mode</a></li><li class="toc-header toc-header-h2"><a href="https://securelist.com/analysis/publications/64361/versatile-ddos-trojan-for-linux/#post-scriptum-billgates-v1-5">Post Scriptum. BillGates v1.5</a></li></ul>			</div></div><!-- article-toc -->
+		
+
+		
+		<div class="entry-content" itemprop="articleBody">
+			<p>In February  2014, an article was published on a popular Russian IT website under a curious title  – <a href="http://habrahabr.ru/post/213973/">Studying the BillGates Linux Botnet</a>. It described a Trojan with sufficiently  versatile DDoS functionality. The capability that we found the most interesting  was the Trojan’s ability to conduct DNS Amplification-type attacks. In  addition, it followed from the article that the Trojan had a sophisticated  modular structure, something we had not seen in the world of Linux malware  before.</p>
+<p>The article  also provided a link for downloading all of the Trojan’s files (taken directly from  an infected machine) – which is what we did.</p>
+<p>The archive  that we downloaded contained the following files, which, according to the author  of the article, were all modules of the same Trojan:</p>
+<ul>
+<li>atddd;</li>
+<li>cupsdd;</li>
+<li>cupsddh;</li>
+<li>ksapdd;</li>
+<li>kysapdd;</li>
+<li>skysapdd;</li>
+<li>xfsdxd.</li>
+</ul>
+<p>The files cupsdd  and cupsddh are detected by Kaspersky Lab products as Backdoor.Linux.Ganiw.a;  atddd and the remaining files are detected as Backdoor.Linux.Mayday.f.</p>
+<p>The archive  with the files also contained a configuration file for cron – the Linux task  scheduler. In this case, the utility is used by the Trojan as a means of getting  a foothold in the system. The Trojan uses cron to perform the following tasks:</p>
+<ol>
+<li>Once a minute – terminate the  processes of all applications that can interfere with its operation: .IptabLes,  nfsd4, profild.key, nfsd, DDosl, lengchao32, b26, codelove, node24</li>
+<li>Approximately once in ninety minutes  – terminate all of its processes: kysapd, atdd, skysapd, xfsdx, ksapd</li>
+<li>Approximately once in two hours –  download all of its components to the /etc folder from http://www.dgnfd564sdf.com:8080/[module_name]  (module_name = name of the Trojan’s module, e.g., cupsdd), after deleting these  files from the /etc folder</li>
+<li>Once in ninety minutes – relaunch all  of its modules</li>
+<li>Every minute – purge system logs and  bash command history and execute chmod 7777 [module_name]</li>
+</ol>
+<p>During subsequent  analysis of the files, we did not find any code responsible for saving the  config file for cron. Most likely, the file was manually downloaded to the  victim machine by a cybercriminal after gaining remote access to the system.</p>
+<h2 id="backdoor-linux-mayday-f-atddd">Backdoor.Linux.Mayday.f (atddd)</h2>
+<p>The file  atddd is a backdoor designed to conduct various types of DDoS attacks against the  servers specified. As mentioned above, Kaspersky Lab products detect it as Backdoor.Linux.Mayday.f.  The files kysapdd, skysapdd, xfsdxd, ksapdd are almost exact copies of atddd –  with one exception, which is discussed later in the text.</p>
+<p>The backdoor starts its operation by calling the function daemon(1, 0), continuing  to run in the background and redirecting standard input, output and errors to /dev/null</p>
+<p>Next, atddd  collects relevant information about the system, including:</p>
+<ol>
+<li>system version (by calling uname())</li>
+<li>number of CPU cores and their clock  rates (taken from /proc/cpuinfo)</li>
+<li>CPU load (taken from /proc/stat)</li>
+<li>network load (data for interfaces  with the “eth” prefix taken from /proc/net/dev)</li>
+</ol>
+<p>The  information listed above is stored in the g_statBase structure.</p>
+<p class="c">
+<img src="./Versatile DDoS Trojan for Linux - Securelist_files/bill_gates_botnet1.jpg" border="0" alt="" style="margin-bottom:15px">
+</p>
+<p>After this,  the backdoor decrypts strings defining the C&amp;C server’s IP address and port  number. The encryption algorithm used is very simple: an encrypted string is  taken character-by-character, with 1 added to the ASCII code of a character if  its number is odd and subtracted from it if the character’s number is even. As a  result, the string “3/3-2/4-269-85” yields the IP-адрес “202.103.178.76”, while “2/:82”  stands for port number “10991”.</p>
+<p>After this,  atddd reads configuration file fwke.cfg, which is located in the same folder  with the malicious program. Information from the config file is saved in the g_fakeCfg  structure. If the file does not exist, the backdoor attempts to create it and store  the following information in it:</p>
+<p>1st line: 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>//flag, if 1 then begin attack, if 0 then  terminate attack</em></p>
+<p>2nd line: 127.0.0.1:127.0.0.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>//range of outgoing IP addresses</em></p>
+<p>3rd line: 10000:60000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>//outgoing port range for an attack</em></p>
+<p>4th line: an empty line&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>//domain name in the case of DNS flood (see below)</em></p>
+<p>This information  is subsequently sent to the C&amp;C server and can be updated with a command from  the C&amp;C.</p>
+<p>Next, the backdoor  creates a new thread, CThreadTaskManager::ProcessMain(), in which commands to  begin an attack and terminate an attack are put into the execution queue. After  this, a new thread is created – CThreadHostStatus::ProcessMain(). In this thread,  data on CPU and network load is updated every second and can subsequently be  sent to the C&amp;C server if requested.</p>
+<p>After this,  20 threads are created, which read information from the task queue and, depending  on the information read, launch an attack or terminate it. However, some of the  threads may not be used in an attack if the relevant C&amp;C command has a parameter  (the number of threads to be used).</p>
+<p class="c">
+<a href="https://cdn.securelist.com/files/2014/07/bill_gates_botnet2.jpg" target="_blank"><br>
+<img src="./Versatile DDoS Trojan for Linux - Securelist_files/bill_gates_botnet2_sm.jpg" border="0" alt="" style="margin-bottom:15px"><br>
+</a>
+</p>
+<p>Then the malware  enters an endless loop of processing messages from the C&amp;C. After a connection  with the C&amp;C is established, information about system version and CPU clock  rate, as well as data from the g_fakeCfg structure, is sent to the C&amp;C  every 30 seconds.</p>
+<p>In response,  the server should send 4 bytes, the first of which is the serial number of a command  – from 1 to 4.</p>
+<p class="c">
+<a href="https://cdn.securelist.com/files/2014/07/bill_gates_botnet3.jpg" target="_blank"><br>
+<img src="./Versatile DDoS Trojan for Linux - Securelist_files/bill_gates_botnet3_sm.jpg" border="0" alt="" style="margin-bottom:15px"><br>
+</a>
+</p>
+<p>Next, if the  command has parameters, the C&amp;C sends another 4 bytes defining the amount of  data that will be sent (i.e., the parameters). Then the parameters themselves  are sent; their size should match the number from the previous C&amp;C  response.</p>
+<p>About each  command in greater detail:</p>
+<ul>
+<li>0x01.  Command to launch an attack. Parameters define the attack’s type and the number  of threads to be used. The attack type is defined by a byte which can take values  from 0x80 to 0x84. This means that 5 attack types are possible:</li>
+<ul>
+<li>0x80  – TCP flood. The destination port number is sent by the C&amp;C in its response  as a parameter. The source port range is defined in fwke.cfg. Each new request  is sent from a new port within the range defined, in the ascending order of  port numbers. The destination IP address is also defined in parameters. </li>
+<li>0x81  – UDP flood. The same as 0x80, but UDP is used as the transport layer protocol.</li>
+<li>0x82  – ICMP flood. Same as above, but via ICMP.</li>
+<li>0x83,  0x84 – two DNS flood attacks. The only difference is the domain name sent in  the DNS request. In the former case, the name is generated randomly, in the  second, it is defined in a parameter (the fourth line in fwke.cfg). Essentially,  both attacks are similar to 0x81, except that port 53 (the default port for the  DNS service) is used as destination port.</li>
+</ul>
+<li>0x02.  Command to terminate an attack. The value in the first line of fwke.cfg is  changed to 0 and the attack is terminated.</li>
+<li>0x03.  Command to update the file fwke.cfg. The response also includes a structure similar  to g_fakeCfg, data from which is used to create the new fwke.cfg file.</li>
+<li>0x04.  Command to send the current command’s execution status to the C&amp;C server. </li>
+</ul>
+<p>In addition  to the above, the backdoor includes several empty methods (without any code),  which have curious names: CThreadAttack::EmptyConnectionAtk,  CThreadAttack::FakeUserAtk, CThreadAttack::HttpAtk. Apparently, the malware  writer had plans to extend the malicious program’s functionality, and this is a  test version rather than a final version. The file cupsdd, which is discussed  below, provides a confirmation of this.</p>
+<p>The files kysapdd,  skysapdd, xfsdxd, ksapdd are almost identical copies of atddd, with the exception  that they contain different C&amp;C server addresses: 112.90.252.76:10991,  112.90.22.197:10991, 116.10.189.246:10991 and 121.12.110.96:10991, respectively.  The names of their configuration files are also different: fsfe.cfg, btgw.cfg,  fake.cfg, xcke.cfg, respectively.</p>
+<p>This means that,  contrary to our expectations, the files atddd, kysapdd, skysapdd, xfsdxd,  ksapdd are not modules of a single piece of malware but rather different copies  of the same Trojan, each connecting to its own C&amp;C server. However, this is  not the most curious part of it by far.</p>
+<h2 id="backdoor-linux-ganiw-a-cupsdd">Backdoor.Linux.Ganiw.a (cupsdd)</h2>
+<p>Like the  files described above, this file is a backdoor designed to carry out various  types of DDoS attacks. However, cupsdd is significantly more feature-rich and  sophisticated than its ‘colleagues’, although in places its code is very  similar to that found in atddd.</p>
+<p>The backdoor  starts its operation by initializing the variables it needs from the string “116.10.189.246:30000:1:1:h:578856:579372:579888”  (separator – “:”), which it first decrypts using the RSA algorithm. The string  contains the following variables:</p>
+<p>g_strConnTgt=116.10.189.246  – C&amp;C server’s IP address</p>
+<p>g_iGatsPort=30000  – C&amp;C server’s port</p>
+<p>g_iGatsIsFx=1  and g_iIsService=1 – flags used later</p>
+<p>g_strBillTail=h  – postfix for the name of the file that will be dropped (see below)</p>
+<p>g_strCryptStart=578856,  g_strDStart=579372, g_strNStart=579888 – pointers to RSA data (encrypted string  and key)</p>
+<p>Next, the malware  drops and executes a file, which is located at offset 0xb1728 from the  beginning of the original file and is 335872 bytes in size, provided that the  file is not already running. The malware checks whether the file is running by  trying to bind a socket to 127.0.0.1:10808. If the attempt is successful, it  means that the file is not running, and it needs to be dropped and executed.</p>
+<p class="c">
+<img src="./Versatile DDoS Trojan for Linux - Securelist_files/bill_gates_botnet4.jpg" border="0" alt="" style="margin-bottom:15px" class="">
+</p>
+<p>If the file  is already running, its process, whose PID can be found in the file /tmp/bill.lock,  is terminated (kill(pid, 9)). Then the file is dropped anyway, replacing the  existing copy.</p>
+<p>The name of  the file that is dropped is generated from the name of the current file that is  running + postfix from the variable g_strBillTail. In our case, the file was named  cupsddh and was located in the same folder with the dropper.</p>
+<p>After this,  the current process forks and the child process calls the function system(“/path/to/cupsddh”),  which executes the file dropped.</p>
+<p>Next, the function  daemon(1, 0) is called, for the same purpose as in the case of the sample described  above (atddd).</p>
+<p>After this,  the malware handles the situation if cupsdd was executed earlier and is  currently active. For this purpose, it checks whether the file /tmp/gates.lock  exists. If it does exist, the current process is terminated (exit(0)). If not, the  file (/tmp/gates.lock) is created and the PID of the current process is written  to it.</p>
+<p>Then, if flag  g_iIsService == 1, the backdoor sets itself to run at system startup by creating  the following script named DbSecuritySpt in /etc/init.d/:</p>
+<p>#!/bin/bash<br>
+/path/to/cupsdd</p>
+<p>The malware  also creates symbolic links to the script in /etc/rc[1-5].1/S97DbSecuritySpt</p>
+<p class="c">
+<img src="./Versatile DDoS Trojan for Linux - Securelist_files/bill_gates_botnet5.jpg" border="0" alt="" style="margin-bottom:15px">
+</p>
+<p class="c">
+<a href="https://cdn.securelist.com/files/2014/07/bill_gates_botnet6.jpg" target="_blank" class=""><br>
+<img src="./Versatile DDoS Trojan for Linux - Securelist_files/bill_gates_botnet6_sm.jpg" border="0" alt="" style="margin-bottom:15px" class=""><br>
+</a>
+</p>
+<p>Next, the malware  reads the configuration file conf.n (if it exists) from the same folder as the  one in which cupsdd is located. The first 4 bytes of the file define the size  of the data which follows. All the data is stored in the structure g_cnfgDoing.</p>
+<p>Then the malware  reads the file containing commands – cmd.n. The format is the same as in conf.n.  The data is stored in the structure g_cmdDoing.</p>
+<p>After this,  the malware obtains all the necessary information about the system, including:</p>
+<ul>
+<li>The  operating system’s name and kernel version (e.g., Linux 3.11.0-15-generic), by  calling uname()</li>
+<li>CPU  clock rate, taken from /proc/cpuinfo</li>
+<li>Number  of CPU cores, taken from /proc/cpuinfo, and CPU load, taken from /proc/stat</li>
+<li>Network  load, taken from /proc/net/dev</li>
+<li>Hard  drive size in megabytes, taken from /proc/meminfo</li>
+<li>Information  about network interfaces, taken from /proc/net/dev</li>
+</ul>
+<p>All the  data is stored in the structure g_statBase.</p>
+<p>Next, a new  stream, CThreadTaskGates::ProcessMain, is created, in which the following  commands are processed:</p>
+<ul>
+<li>0x03.  DoConfigCommand(). Update the configuration file conf.n.</li>
+<li>0x05.  DoUpdateCommand(). Start a new thread, CThreadUpdate::ProcessMain, in which  update one of its components. The command accepts a number from 1 to 3 as a  parameter. Each of the numbers is associated with one of the following strings:
+<p>1 – “Alib” – the file /usr/lib/libamplify.so<br>
+2 – “Bill” – the  dropped module (cupsddh)<br>
+3 – “Gates” – the  dropper (cupsdd)</p>
+</li>
+</ul>
+<p class="c">
+<a href="https://cdn.securelist.com/files/2014/07/bill_gates_botnet7.jpg" target="_blank" class=""><br>
+<img src="./Versatile DDoS Trojan for Linux - Securelist_files/bill_gates_botnet7_sm.jpg" border="0" alt="" style="margin-bottom:15px" class=""><br>
+</a>
+</p>
+<p>Depending  on the parameter, one of the malicious program’s components is updated. An update  is launched by sending 6 bytes containing the string “EF76#^” to the C&amp;C  server, followed by one of the strings described above (depending on the  parameter).</p>
+<p>The C&amp;C  responds by sending 4 bytes containing the length (in bytes) of the file that  will be transferred next. Then the C&amp;C transfers the file itself in  1024-byte packets.</p>
+<p>First, the file  is saved in the /tmp folder under a random name consisting of digits. Then, depending  on the file that was received, the existing file cupsdd (or cupsddh) is  replaced or the file is copied to /usr/lib/libamplify.so</p>
+<p>Next, the temporary  file is deleted from /tmp, and the chmod command is used to set 755 permissions  for the resulting file. After this, in the case of updating cupsddh, the active  process is terminated and the new file is launched. In the case of updating cupsdd,  the final stage (starting from copying a file from /tmp) is carried out by cupsddh,  to which the relevant command is sent.</p>
+<ul>
+<li>0x07.  DoCommandCommand(). Write a new command to cmd.n.</li>
+<li>0x02.  StopUpdate(). Close the current connection, which was established in order to update  modules.</li>
+</ul>
+<p>Next, the backdoor  starts several threads, in which it simultaneously performs several additional operations:</p>
+<ul>
+<li>CThreadClientStatus  updates the data on CPU and network load in the g_statBase structure every second.</li>
+<li>CThreadRecycle  removes completed tasks from the queue.</li>
+<li>CThreadConnSender  reads commands from the queue and passes them to the cupsddh module via a TCP  connection with 127.0.0.1 on port 10808. In response it receives the status of  their execution.</li>
+<li>CThreadMonBill  checks whether the module cupsddh is running once every minute. If not, it drops  and executes it again.</li>
+<li>CThreadLoopCmd  reads commands from g_cmdDoing (the file cmd.n) and executes them using the call  system(cmd).</li>
+</ul>
+<p>Next, the  main thread enters the loop of receiving and processing commands from the  C&amp;C server. There are two possibilities in this case, depending on the g_iGatsIsFx  flag:</p>
+<ol>
+<li>If the flag is set (==1), the malware  simply uses the new thread to send information about the system and the current  configuration from g_cnfgDoing to the C&amp;C and waits to receive commands in  response, like the sample (atddd) described above;</li>
+<li>If the flag is not set, then the communication  session is initiated by the C&amp;C. In other words, the malware waits for the  C&amp;C to connect and begins to transfer the data mentioned above only when a  connection has been established.</li>
+</ol>
+<p class="c">
+<a href="https://cdn.securelist.com/files/2014/07/bill_gates_botnet8.jpg" target="_blank"><br>
+<img src="./Versatile DDoS Trojan for Linux - Securelist_files/bill_gates_botnet8_sm.jpg" border="0" alt="" style="margin-bottom:15px"><br>
+</a>
+</p>
+<p>Commands received  from the C&amp;C are divided into two queues: either for execution in the current  module (in the thread CThreadTaskGates described above) or for passing to the cupsddh  module (thread CThreadConnSender).</p>
+<h2 id="backdoor-linux-ganiw-a-cupsddh">Backdoor.Linux.Ganiw.a (cupsddh)</h2>
+<p>The file is  packed with UPX. After being unpacked, it calls daemon(1,0). It creates the file  /tmp/bill.lock, in which it stores the PID of the current process. cupsddh stores  system data in the structure g_statBase, which is identical to that used by cupsdd.</p>
+<p>Next, it populates  the structure g_provinceDns with the IP addresses of DNS servers converted to binary  data in network byte order using the function inet_addr(), taking data from the  string array g_sProvinceDns (offset in unpacked file: 0x8f44с, size 4608 bytes).</p>
+<p>cupsddh executes  command “insmod /usr/lib/xpacket.ko” in an attempt to load the kernel module into  the kernel. However, the file is not present on ‘clean’ systems, and the  malware does not make any attempt to download it or obtain it in any other way.</p>
+<p class="c">
+<a href="https://cdn.securelist.com/files/2014/07/bill_gates_botnet9.jpg" target="_blank"><br>
+<img src="./Versatile DDoS Trojan for Linux - Securelist_files/bill_gates_botnet9_sm.jpg" border="0" alt="" style="margin-bottom:15px"><br>
+</a>
+</p>
+<p>Next, data  from the file /usr/libamplify.so (as it turns out, this is not a library but one  more config file) is loaded into the structure g_AmpResource. The file has the  following format: 1st dword is the number of dwords that follow. Apparently, it  contains the list of IP addresses for DNS servers that are currently relevant,  i.e., those suitable for DNS Amplification type DDoS attacks.</p>
+<p>After this,  the module creates two threads: CThreadTask and CThreadRecycle. The former  executes commands from a queue comprising commands which came from the cupsdd module.  The latter removes commands that have been executed. Next, the main thread binds  a socket to 127.0.0.1:10808 and enters an endless loop, receiving commands from  the cupsdd module and putting the commands received into the above queue.</p>
+<p>The  following commands are possible:</p>
+<ul>
+<li>0x01.  Start an attack according to the parameters received. See a more detailed  description below.</li>
+<li>0x02.  Terminate the current attack, setting the relevant flag.</li>
+<li>0x03.  Update the current configuration in the g_cnfgDoing structure, which is used during  an attack. Also, update the current local MAC address, as well as the MAC and  IP address of the current gateway in the structure g_statBase.</li>
+<li>0x05.  The final stage of updating the cupsdd module (described above).</li>
+</ul>
+<p class="c">
+<img src="./Versatile DDoS Trojan for Linux - Securelist_files/bill_gates_botnet10.jpg" border="0" alt="" style="margin-bottom:15px">
+</p>
+<p>Two main attack modes are possible: normal mode and kernel mode.</p>
+<h3 id="kernel-mode">Kernel mode</h3>
+<p>This mode uses <a href="http://www.linuxfoundation.org/collaborate/workgroups/networking/pktgen">pktgen</a>, a kernel-level packet generator built into Linux.  Its advantage to the attacker is that traffic is generated with the greatest  speed possible for the given network interface. In addition, the packets  generated in this way cannot be detected using ordinary sniffers, e.g., the  standard tcpdump, since packets are generated at kernel level.</p>
+<p class="c">
+<a href="https://cdn.securelist.com/files/2014/07/bill_gates_botnet11.jpg" target="_blank"><br>
+<img src="./Versatile DDoS Trojan for Linux - Securelist_files/bill_gates_botnet11_sm.jpg" border="0" alt="" style="margin-bottom:15px"><br>
+</a>
+</p>
+<p>The packet generator  is controlled using a set of scripts/configs in the /proc/net/pktgen folder, but  the module pktgen must first be loaded into the kernel by calling the command “modprobe  pktgen”. However, I did not find any such calls. Apparently, the call “insmod  /usr/lib/xpacket.ko” is used instead, although, as mentioned above, the file is  absent from the system by default. As a result, kernel mode is not operational  in this version of the malware.</p>
+<p>Nevertheless,  the malware attempts to write several files to the /proc/net/pktgen folder, namely:</p>
+<ol>
+<li>the file  /proc/net/pktgen/kpktgend_%d for each CPU core, where %d is the core number,  beginning from 0. The file’s contents is as follows:
+<p>rem_device_all<br>
+add_device eth%d<br>
+max_before_softirq 10000</p>
+</li>
+<p class="c">
+<a href="https://cdn.securelist.com/files/2014/07/bill_gates_botnet12.jpg" target="_blank" class=""><br>
+<img src="./Versatile DDoS Trojan for Linux - Securelist_files/bill_gates_botnet12_sm.jpg" border="0" alt="" style="margin-bottom:15px" class=""><br>
+</a>
+</p>
+<li>the file /proc/net/pktgen/eth%d for each  CPU core, where %d is the core number, beginning from 0. The file’s contents is  as follows:
+<p>count 0<br>
+clone_skb 0<br>
+delay 0<br>
+TXSIZE_RND<br>
+min_pkt_size %d<br>
+max_pkt_size %d<br>
+IPSRC_RND<br>
+src_min %s<br>
+src_max %s<br>
+UDPSRC_RND<br>
+udp_src_min %d<br>
+udp_src_max %d<br>
+dst %s<br>
+udp_dst_min %d<br>
+udp_dst_max %d<br>
+dst_mac %02x:%02x:%02x:%02x:%02x:%02x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>//MAC  address of the gateway from g_statBase</em><br>
+is_multi %d<br>
+multi_dst %s&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>//if there  are several addresses to be used in an attack (i.e., if the value in the previous  line is not equal to 0), they are set in these lines, the number of which  matches the previous parameter</em><br>
+pkt_type %d<br>
+dns_domain %s<br>
+syn_flag %d<br>
+is_dns_random %d<br>
+dns_type %d<br>
+is_edns %d<br>
+edns_len %d<br>
+is_edns_sec %d</p>
+<p>The values of most pktgen parameters are passed  from cupsdd via command parameters.</p></li>
+<li>the file /proc/net/pktgen/pgctrl, which  contains the string “start”.</li>
+</ol>
+<h3 id="normal-attack-mode">Normal attack mode</h3>
+<p>As in the case  of atddd, normal attack mode uses raw sockets.</p>
+<p>The  following attack types are possible in this mode:</p>
+<ul>
+<li>CAttackSyn – TCP-SYN flood.</li>
+<li>CAttackUdp  – UDP flood (as in the case of atddd)</li>
+<li>CAttackDns  – DNS flood (as in the case of atddd)</li>
+<li>CAttackIcmp  – ICMP flood (as in the case of atddd)</li>
+<li>CAttackCc  – HTTP flood.</li>
+<li>CAttackAmp – DNS Amplification.</li>
+</ul>
+<p>The last attack  type on the list above is different in that packets are sent to vulnerable DNS servers,  with the attack target specified as the sender’s IP address. As a result, the cybercriminal  sends a small packet with a DNS request and the DNS server responds to the  attack target with a significantly larger packet. The list of vulnerable DNS  servers is stored in the file libamplify.so, which is written to disk following  the relevant command from the C&amp;C.</p>
+<p class="c">
+<img src="./Versatile DDoS Trojan for Linux - Securelist_files/bill_gates_botnet13.jpg" border="0" alt="" style="margin-bottom:15px">
+</p>
+<h2 id="post-scriptum-billgates-v1-5">Post Scriptum. BillGates v1.5</h2>
+<p>This version  of the Trojan appeared a little later and is probably currently the latest.  Essentially, this is the same cupsdd, only a little ‘shaped up’. Overall, there  is more logic in the code, plus there are a couple of new functions.</p>
+<p>The most significant  changes were made to the Gates module, i.e., the file cupsdd. Now it has three operating  modes. The choice of mode is based on the folder from which the file is  launched. Specifically, if it is launched from /usr/bin/pojie, then monitoring  mode is enabled, otherwise the module operates in installation and updating  mode, which is later superseded by the mode in which it controls the Bill  module.</p>
+<p class="c">
+<img src="./Versatile DDoS Trojan for Linux - Securelist_files/bill_gates_botnet14.jpg" border="0" alt="" style="margin-bottom:15px">
+</p>
+<ol>
+<li><strong>Installation and updating mode.</strong>
+<p>First, the module terminates its process working  in monitoring mode, if it exists. Its PID is kept in the file /tmp/moni.lock.<br>
+  Next, it reinstalls and re-launches the Bill  module.<br>
+  Next, if a process working in the ‘controlling  the Bill module’ mode exists, that process is terminated. Its PID is kept in the  file /tmp/gates.lock.<br>
+  If the flag g_iIsService is set (it is defined in  the same way as in the previous version), the module sets itself to run at  system startup in the same way as before (in the previous version).<br>
+  Next, the module writes its path to the file /tmp/notify.file  and then copies itself to the file /usr/bin/pojie. After this, it launches its  copy, which is, obviously, set to run in monitoring mode, and then changes its  own operating mode to controlling the Bill module.</p>
+</li>
+<li><strong>Monitoring mode.</strong>
+<p>Writes the PID of the current  process to the file /tmp/moni.lock. Next, it starts two threads – one to monitor  the Bill module and the other to monitor the Gates module operating in controlling  Bill mode. If one of these processes is currently not running, the relevant  file is created and launched again.</p>
+</li>
+<li><strong>Controlling the Bill module mode.</strong>
+<p>The actions of  the Gates module are exactly the same as they were in the previous version of the  Trojan (after installing the Bill module and initializing the relevant  variables and structures of the Trojan).</p>
+</li>
+</ol>
+<p>To summarize,  in the new version of the Trojan its authors have added a little ‘robustness’ without  making any significant functionality changes.</p>
+<p>It is also worth  noting that the hard-coded IP address of the C&amp;C server has remained the same  (116.10.189.246) in this version, but the port number has changed – it is now 36008  instead of 30000 in the previous version.</p>
+		</div><!-- .entry-content -->
+
+		
+		<h3 class="widget-title">Related Articles</h3><ul class="related-posts">
+	<li class="promo-box promo-210x130" style="background-image:url(https://cdn.securelist.com/files/2017/03/ddos_economics_pr-300x200.jpg);">
+		<p class="headline" style="line-height:10px;"><a href="https://securelist.com/analysis/publications/77784/the-cost-of-launching-a-ddos-attack/">The cost of launching a DDoS attack</a></p>
+		<div class="entry-social sharing-icons-wrap">
+			<div class="social-likes social-likes_notext social-likes_visible social-likes_ready" data-title="The cost of launching a DDoS attack" data-url="https://securelist.com/analysis/publications/77784/the-cost-of-launching-a-ddos-attack/" data-counters="yes" data-zeroes="yes"><div class="social-likes__widget social-likes__widget_facebook" title="Share via Facebook"><span class="social-likes__button social-likes__button_facebook"><span class="social-likes__icon social-likes__icon_facebook"></span></span><span class="social-likes__counter social-likes__counter_facebook">101</span></div>
+<div class="social-likes__widget social-likes__widget_plusone" title="Share via Google"><span class="social-likes__button social-likes__button_plusone"><span class="social-likes__icon social-likes__icon_plusone"></span></span><span class="social-likes__counter social-likes__counter_plusone">8</span></div>
+<div class="social-likes__widget social-likes__widget_twitter" title="Share via Twitter"><span class="social-likes__button social-likes__button_twitter"><span class="social-likes__icon social-likes__icon_twitter"></span></span><span class="social-likes__counter social-likes__counter_twitter">0</span></div><div class="social-likes__widget social-likes__widget_views"><span class="social-likes__button social-likes__button_views"><span class="social-likes__icon social-likes__icon_views"></span></span><span class="social-likes__counter social-likes__counter_views">3993</span></div><div class="social-likes__widget social-likes__widget_comments"><a href="https://securelist.com/analysis/publications/77784/the-cost-of-launching-a-ddos-attack/#comments"><span class="social-likes__button social-likes__button_comments"><span class="social-likes__icon social-likes__icon_comments"></span></span><span class="social-likes__counter social-likes__counter_comments">1</span></a></div></div>		</div>
+	</li><!-- .promo-box -->
+
+
+	<li class="promo-box promo-210x130" style="background-image:url(https://cdn.securelist.com/wp-content/themes/securelist/images/article-default/abstraction_6.jpg);">
+		<p class="headline" style="line-height:10px;"><a href="https://securelist.com/blog/research/77621/newish-mirai-spreader-poses-new-risks/">New(ish) Mirai Spreader Poses New Risks</a></p>
+		<div class="entry-social sharing-icons-wrap">
+			<div class="social-likes social-likes_notext social-likes_visible social-likes_ready" data-title="New(ish) Mirai Spreader Poses New Risks" data-url="https://securelist.com/blog/research/77621/newish-mirai-spreader-poses-new-risks/" data-counters="yes" data-zeroes="yes"><div class="social-likes__widget social-likes__widget_facebook" title="Share via Facebook"><span class="social-likes__button social-likes__button_facebook"><span class="social-likes__icon social-likes__icon_facebook"></span></span><span class="social-likes__counter social-likes__counter_facebook">90</span></div>
+<div class="social-likes__widget social-likes__widget_plusone" title="Share via Google"><span class="social-likes__button social-likes__button_plusone"><span class="social-likes__icon social-likes__icon_plusone"></span></span><span class="social-likes__counter social-likes__counter_plusone">7</span></div>
+<div class="social-likes__widget social-likes__widget_twitter" title="Share via Twitter"><span class="social-likes__button social-likes__button_twitter"><span class="social-likes__icon social-likes__icon_twitter"></span></span><span class="social-likes__counter social-likes__counter_twitter">0</span></div><div class="social-likes__widget social-likes__widget_views"><span class="social-likes__button social-likes__button_views"><span class="social-likes__icon social-likes__icon_views"></span></span><span class="social-likes__counter social-likes__counter_views">3960</span></div><div class="social-likes__widget social-likes__widget_comments"><a href="https://securelist.com/blog/research/77621/newish-mirai-spreader-poses-new-risks/#respond"><span class="social-likes__button social-likes__button_comments"><span class="social-likes__icon social-likes__icon_comments"></span></span><span class="social-likes__counter social-likes__counter_comments">0</span></a></div></div>		</div>
+	</li><!-- .promo-box -->
+
+
+	<li class="promo-box promo-210x130" style="background-image:url(https://cdn.securelist.com/files/2015/08/ddos_intro-300x168.jpg);">
+		<p class="headline" style="line-height:10px;"><a href="https://securelist.com/analysis/quarterly-malware-reports/77412/ddos-attacks-in-q4-2016/">DDoS attacks in Q4 2016</a></p>
+		<div class="entry-social sharing-icons-wrap">
+			<div class="social-likes social-likes_notext social-likes_visible social-likes_ready" data-title="DDoS attacks in Q4 2016" data-url="https://securelist.com/analysis/quarterly-malware-reports/77412/ddos-attacks-in-q4-2016/" data-counters="yes" data-zeroes="yes"><div class="social-likes__widget social-likes__widget_facebook" title="Share via Facebook"><span class="social-likes__button social-likes__button_facebook"><span class="social-likes__icon social-likes__icon_facebook"></span></span><span class="social-likes__counter social-likes__counter_facebook">65</span></div>
+<div class="social-likes__widget social-likes__widget_plusone" title="Share via Google"><span class="social-likes__button social-likes__button_plusone"><span class="social-likes__icon social-likes__icon_plusone"></span></span><span class="social-likes__counter social-likes__counter_plusone">13</span></div>
+<div class="social-likes__widget social-likes__widget_twitter" title="Share via Twitter"><span class="social-likes__button social-likes__button_twitter"><span class="social-likes__icon social-likes__icon_twitter"></span></span><span class="social-likes__counter social-likes__counter_twitter">0</span></div><div class="social-likes__widget social-likes__widget_views"><span class="social-likes__button social-likes__button_views"><span class="social-likes__icon social-likes__icon_views"></span></span><span class="social-likes__counter social-likes__counter_views">5455</span></div><div class="social-likes__widget social-likes__widget_comments"><a href="https://securelist.com/analysis/quarterly-malware-reports/77412/ddos-attacks-in-q4-2016/#comments"><span class="social-likes__button social-likes__button_comments"><span class="social-likes__icon social-likes__icon_comments"></span></span><span class="social-likes__counter social-likes__counter_comments">3</span></a></div></div>		</div>
+	</li><!-- .promo-box -->
+
+</ul>
+		
+<div id="comments" class="entry-comments">
+
+			<div class="aligncenter white comment-title">
+			<span class="left uppercase comment-count">There are 3 comments</span>
+			<span class="right comment-login-text">If you would like to comment on this article you must first <a href="https://securelist.com/wp-login.php">login</a></span>
+		</div>
+
+		<ol class="comment-list">
+			
+		<li class="comment even thread-even depth-1" id="comment-98298">
+
+			<article itemscope="itemscope" itemtype="http://schema.org/UserComments">
+
+				<header class="comment-header">
+					<div class="comment-author">
+						<img alt="" src="./Versatile DDoS Trojan for Linux - Securelist_files/3dfbb96eb4154297641ae79418c1dbe1" srcset="https://secure.gravatar.com/avatar/3dfbb96eb4154297641ae79418c1dbe1?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" itemprop="image"><span itemprop="name"><a href="http://googl.com/" rel="external nofollow" itemprop="url">manindra</a></span> <span class="says"></span>
+						<div class="comment-meta commentmetadata">
+
+							Posted on							<time itemprop="commentTime" datetime="2014-09-08T09:32:38+00:00">September 8, 2014. 9:32 am</time>						</div><!-- .comment-meta -->
+
+					</div><!-- .comment-author -->
+				</header>
+
+				<div class="comment-content" itemprop="commentText">
+										<p>o summarize, in the new version of the Trojan its authors have added a little ‘robustness’ without making any significant functionality chang</p>
+					<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="https://securelist.com/analysis/publications/64361/versatile-ddos-trojan-for-linux/?replytocom=98298#respond" onclick="return addComment.moveForm( &quot;comment-98298&quot;, &quot;98298&quot;, &quot;respond&quot;, &quot;64361&quot; )" aria-label="Reply to manindra">Reply</a></div><!-- .comment-reply -->				</div><!-- .comment-content -->
+
+			</article>
+
+	</li><!-- #comment-## -->
+
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-363967">
+
+			<article itemscope="itemscope" itemtype="http://schema.org/UserComments">
+
+				<header class="comment-header">
+					<div class="comment-author">
+						<img alt="" src="./Versatile DDoS Trojan for Linux - Securelist_files/2d32641e93244576458b43b092305a99" srcset="https://secure.gravatar.com/avatar/2d32641e93244576458b43b092305a99?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" itemprop="image"><span itemprop="name">Bill Conlon</span> <span class="says"></span>
+						<div class="comment-meta commentmetadata">
+
+							Posted on							<time itemprop="commentTime" datetime="2015-02-05T16:31:32+00:00">February 5, 2015. 4:31 pm</time>						</div><!-- .comment-meta -->
+
+					</div><!-- .comment-author -->
+				</header>
+
+				<div class="comment-content" itemprop="commentText">
+										<p>I have a Mac OS X.6.8 server with a partial infection.  </p>
+<p>About a year ago I noticed files being deleted from some user mailboxes, apparently hacking a POP account.  SSH was open in the past with just a password, and I immediately shut it down, changed passwords and went about hunting for issues and restoring the mailboxes.</p>
+<p>I was clearly not thorough enough, as some variant of this trojan also got installed.</p>
+<p>Yesterday I noticed that Netstat showed many open sockets attempting to reach dgnfd564sdf.  I have been on the hunt for any of the other evidence cited above, but:<br>
+* I have not yet found any of the modules listed above by name<br>
+* clamscan has found any indication<br>
+* there are no crontabs in root or any of the users<br>
+* the targeted website resolves to localhost on this server, and it looks like there’s no inbound or outbound network traffic, so the impact is not severe on the network, though these must be consuming some memory at least.</p>
+					<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="https://securelist.com/analysis/publications/64361/versatile-ddos-trojan-for-linux/?replytocom=363967#respond" onclick="return addComment.moveForm( &quot;comment-363967&quot;, &quot;363967&quot;, &quot;respond&quot;, &quot;64361&quot; )" aria-label="Reply to Bill Conlon">Reply</a></div><!-- .comment-reply -->				</div><!-- .comment-content -->
+
+			</article>
+
+	</li><!-- #comment-## -->
+
+		<li class="comment even thread-even depth-1" id="comment-364083">
+
+			<article itemscope="itemscope" itemtype="http://schema.org/UserComments">
+
+				<header class="comment-header">
+					<div class="comment-author">
+						<img alt="" src="./Versatile DDoS Trojan for Linux - Securelist_files/2d32641e93244576458b43b092305a99" srcset="https://secure.gravatar.com/avatar/2d32641e93244576458b43b092305a99?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" itemprop="image"><span itemprop="name">Bill Conlon</span> <span class="says"></span>
+						<div class="comment-meta commentmetadata">
+
+							Posted on							<time itemprop="commentTime" datetime="2015-02-05T20:07:25+00:00">February 5, 2015. 8:07 pm</time>						</div><!-- .comment-meta -->
+
+					</div><!-- .comment-author -->
+				</header>
+
+				<div class="comment-content" itemprop="commentText">
+										<p>Some additional info on the hack of my Mac OS X.6.8 server.</p>
+<p>The /etc/host file was modified to alias www*dgnfd564sdf*com to localhost.  That explains the open ports referencing that domain name.  Whether all those open ports are legitimate is still to be investigated, but after restoring my hosts file, netstat reports localhost instead.</p>
+<p>Alas, I did not record the modification date of the hosts file.  Maybe I can find it from a backup.</p>
+<p>But the way I found this was by examining my smtp logs and noticing the above hostname in the log.  Curious, I went to the host file.  To narrow down the timing of the appearance, I have reviewed some old emails and found that the substitution of  www*dgnfd564sdf*com for localhost in the message headers occured 26 July 2014, shortly after this report was published.</p>
+<p>I don’t know the path into my server though, perhaps the SSH service was still running at the time.  I do have a test message from my outside mail account showing the problematic hostname in the header, so probably there was evidence of mail problems already.</p>
+					<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="https://securelist.com/analysis/publications/64361/versatile-ddos-trojan-for-linux/?replytocom=364083#respond" onclick="return addComment.moveForm( &quot;comment-364083&quot;, &quot;364083&quot;, &quot;respond&quot;, &quot;64361&quot; )" aria-label="Reply to Bill Conlon">Reply</a></div><!-- .comment-reply -->				</div><!-- .comment-content -->
+
+			</article>
+
+	</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+		
+		
+	
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://securelist.com/analysis/publications/64361/versatile-ddos-trojan-for-linux/#respond" style="display:none;">Cancel Reply</a></small></h3>			<form action="https://securelist.com/wp-comments-post.php?wpe-comment-post=kasperskyhub" method="post" id="loginform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><div class="comment-form-comment"><textarea id="comment" name="comment" style="width:100%" rows="8" aria-required="true" placeholder="Enter your comment here"></textarea></div><!-- .comment-form-comment --><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" aria-required="true" required="required"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" maxlength="100" aria-describedby="email-notes" aria-required="true" required="required"></p>
+<p class="form-submit"><input name="submit" type="submit" id="commentsubmit" class="submit" value="Submit"> <input type="hidden" name="comment_post_ID" value="64361" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="96406bb89e"></p><!-- the following input field has been added by the Honeypot Comments plugin to thwart spambots -->
+	<input type="hidden" id="4UkTmD2K0dBRRCHiuEzxUHt8I" name="AUrWVNYN4nPBkByLzKPtB37xN"><div class="g-recaptcha" data-sitekey="6Lfhf_8SAAAAAFOLFS54H1lR_oQ5pW_j7-h30oa1" data-theme="standard"><div style="width: 304px; height: 78px;"><div><iframe src="./Versatile DDoS Trojan for Linux - Securelist_files/anchor.html" title="recaptcha widget" width="304" height="78" frameborder="0" scrolling="no" name="undefined"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid #c1c1c1; margin: 10px 25px; padding: 0px; resize: none;  display: none; "></textarea></div></div><script type="text/javascript" src="./Versatile DDoS Trojan for Linux - Securelist_files/api.js"></script>            <div id="recaptcha-submit-btn-area">&nbsp;</div>
+            <noscript>
+            &lt;style type='text/css'&gt;#form-submit-save {display:none;}&lt;/style&gt;
+            &lt;input name="submit" type="submit" id="submit-alt" tabindex="6"
+                value="Submit Comment"/&gt;
+            </noscript><p class="comment-subscription-form"><input type="checkbox" name="subscribe_comments" id="subscribe_comments" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;"> <label class="subscribe-label" id="subscribe-label" for="subscribe_comments">Notify me of follow-up comments by email.</label></p><p class="comment-subscription-form"><input type="checkbox" name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;"> <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog">Notify me of new posts by email.</label></p><p style="display: none;"></p>			</form>
+			</div><!-- #respond -->
+	
+</div><!-- .entry-comments -->
+
+	</div><!-- .col-4 -->
+
+
+	<div id="secondary" class="sidebar-wrap" role="complementary" itemscope="" itemtype="http://schema.org/WPSideBar">
+		<div class="widget-area">
+		<div class="analysis-author"><div id="authors-wrap">
+		<div class="author-wrap">
+
+			<div class="left entry-author-thumbnail">
+				<a href="https://securelist.com/author/mikhailk/">
+					<img itemprop="image" src="./Versatile DDoS Trojan for Linux - Securelist_files/1404742650-bpfull-90x90.jpg" alt="" class=" avatar  avatar-90  photo user-391-avatar" width="90" height="90">				</a>
+			</div>
+
+			<ul class="left entry-author-meta">
+
+				<li class="entry-nickname">
+					<a href="https://securelist.com/author/mikhailk/">
+						Mikhail Kuzin					</a>
+				</li>
+
+				
+				
+			</ul>
+
+		</div>
+
+	</div></div><aside id="related_recent_posts-2" class="widget widget_related_recent_posts"><h3 class="widget-title">Analysis</h3><ul class="related-recent">				<li><a href="https://securelist.com/analysis/publications/77784/the-cost-of-launching-a-ddos-attack/" title="The cost of launching a DDoS attack">The cost of launching a DDoS attack</a></li>
+							<li><a href="https://securelist.com/analysis/quarterly-malware-reports/77412/ddos-attacks-in-q4-2016/" title="DDoS attacks in Q4 2016">DDoS attacks in Q4 2016</a></li>
+							<li><a href="https://securelist.com/analysis/quarterly-malware-reports/76464/kaspersky-ddos-intelligence-report-for-q3-2016/" title="Kaspersky DDOS intelligence report for Q3 2016">Kaspersky DDOS intelligence report for Q3 2016</a></li>
+							<li><a href="https://securelist.com/analysis/quarterly-malware-reports/75513/kaspersky-ddos-intelligence-report-for-q2-2016/" title="Kaspersky DDoS Intelligence Report for Q2 2016">Kaspersky DDoS Intelligence Report for Q2 2016</a></li>
+							<li><a href="https://securelist.com/analysis/quarterly-malware-reports/74550/kaspersky-ddos-intelligence-report-for-q1-2016/" title="Kaspersky DDoS Intelligence Report for Q1 2016">Kaspersky DDoS Intelligence Report for Q1 2016</a></li>
+						</ul></aside><aside id="related_recent_posts-3" class="widget widget_related_recent_posts"><h3 class="widget-title">Blog</h3><ul class="related-recent">				<li><a href="https://securelist.com/blog/research/77621/newish-mirai-spreader-poses-new-risks/" title="New(ish) Mirai Spreader Poses New Risks">New(ish) Mirai Spreader Poses New Risks</a></li>
+							<li><a href="https://securelist.com/blog/research/76954/is-mirai-really-as-black-as-its-being-painted/" title="Is Mirai Really as Black as It’s Being Painted?">Is Mirai Really as Black as It’s Being Painted?</a></li>
+							<li><a href="https://securelist.com/blog/incidents/76791/new-wave-of-mirai-attacking-home-routers/" title="New wave of Mirai attacking home routers">New wave of Mirai attacking home routers</a></li>
+							<li><a href="https://securelist.com/blog/incidents/76728/ddos-attack-on-the-russian-banks-what-the-traffic-data-showed/" title="DDoS attack on the Russian banks: what the traffic data showed">DDoS attack on the Russian banks: what the traffic data showed</a></li>
+							<li><a href="https://securelist.com/blog/research/76433/inside-the-gootkit-cc-server/" title="Inside the Gootkit C&amp;C server">Inside the Gootkit C&amp;C server</a></li>
+						</ul></aside><div class="widget-pusher-wrap" style="position: fixed; width: 250px; top: 70px;"><div class="widget-pusher"></div><aside id="text-17" class="widget widget_text">			<div class="textwidget"><a href="https://kas.pr/tDD2" target="_blank"><img src="./Versatile DDoS Trojan for Linux - Securelist_files/get-the-guide-210.png" width="210" height="307"></a></div>
+		</aside><aside id="promo_boxes-2" class="widget widget_promo_boxes" style="display: none;"><h3 class="widget-title"></h3><div class="promo-box-wrap">				<div class="promo-box promo-210x130 promo-1" style="background: url(https://cdn.securelist.com/files/2017/04/lazarus_pr-330x200.jpg);">
+					<p class="headline"><a href="https://securelist.com/blog/sas/77908/lazarus-under-the-hood/">Lazarus Under The Hood</a></p>
+					<div class="entry-social sharing-icons-wrap">
+						<div class="social-likes social-likes_notext social-likes_visible social-likes_ready" data-title="Lazarus Under The Hood" data-url="https://securelist.com/blog/sas/77908/lazarus-under-the-hood/" data-counters="yes" data-zeroes="yes"><div class="social-likes__widget social-likes__widget_facebook" title="Share via Facebook"><span class="social-likes__button social-likes__button_facebook"><span class="social-likes__icon social-likes__icon_facebook"></span></span><span class="social-likes__counter social-likes__counter_facebook">46</span></div>
+<div class="social-likes__widget social-likes__widget_plusone" title="Share via Google"><span class="social-likes__button social-likes__button_plusone"><span class="social-likes__icon social-likes__icon_plusone"></span></span><span class="social-likes__counter social-likes__counter_plusone">1</span></div>
+<div class="social-likes__widget social-likes__widget_twitter" title="Share via Twitter"><span class="social-likes__button social-likes__button_twitter"><span class="social-likes__icon social-likes__icon_twitter"></span></span><span class="social-likes__counter social-likes__counter_twitter">0</span></div><div class="social-likes__widget social-likes__widget_comments"><a href="https://securelist.com/blog/sas/77908/lazarus-under-the-hood/#respond"><span class="social-likes__button social-likes__button_comments"><span class="social-likes__icon social-likes__icon_comments"></span></span><span class="social-likes__counter social-likes__counter_comments">0</span></a></div></div>					</div>
+				</div><!-- .promo-box -->
+
+							<div class="promo-box promo-210x130 promo-2" style="background: url(https://cdn.securelist.com/files/2017/04/penquin_pr-330x200.jpg);">
+					<p class="headline"><a href="https://securelist.com/blog/sas/77883/penquins-moonlit-maze/">Penquin’s Moonlit Maze</a></p>
+					<div class="entry-social sharing-icons-wrap">
+						<div class="social-likes social-likes_notext social-likes_visible social-likes_ready" data-title="Penquin’s Moonlit Maze" data-url="https://securelist.com/blog/sas/77883/penquins-moonlit-maze/" data-counters="yes" data-zeroes="yes"><div class="social-likes__widget social-likes__widget_facebook" title="Share via Facebook"><span class="social-likes__button social-likes__button_facebook"><span class="social-likes__icon social-likes__icon_facebook"></span></span><span class="social-likes__counter social-likes__counter_facebook">25</span></div>
+<div class="social-likes__widget social-likes__widget_plusone" title="Share via Google"><span class="social-likes__button social-likes__button_plusone"><span class="social-likes__icon social-likes__icon_plusone"></span></span><span class="social-likes__counter social-likes__counter_plusone">2</span></div>
+<div class="social-likes__widget social-likes__widget_twitter" title="Share via Twitter"><span class="social-likes__button social-likes__button_twitter"><span class="social-likes__icon social-likes__icon_twitter"></span></span><span class="social-likes__counter social-likes__counter_twitter">0</span></div><div class="social-likes__widget social-likes__widget_comments"><a href="https://securelist.com/blog/sas/77883/penquins-moonlit-maze/#respond"><span class="social-likes__button social-likes__button_comments"><span class="social-likes__icon social-likes__icon_comments"></span></span><span class="social-likes__counter social-likes__counter_comments">0</span></a></div></div>					</div>
+				</div><!-- .promo-box -->
+
+							<div class="promo-box promo-210x130 promo-3" style="background: url(https://cdn.securelist.com/files/2016/11/sas_pr-330x200.png);">
+					<p class="headline"><a href="https://securelist.com/blog/sas/77813/top-8-reasons-you-dont-want-to-miss-sas-2017/">Top 8 Reasons You Don’t Want to Miss SAS 2017</a></p>
+					<div class="entry-social sharing-icons-wrap">
+						<div class="social-likes social-likes_notext social-likes_visible social-likes_ready" data-title="Top 8 Reasons You Don’t Want to Miss SAS 2017" data-url="https://securelist.com/blog/sas/77813/top-8-reasons-you-dont-want-to-miss-sas-2017/" data-counters="yes" data-zeroes="yes"><div class="social-likes__widget social-likes__widget_facebook" title="Share via Facebook"><span class="social-likes__button social-likes__button_facebook"><span class="social-likes__icon social-likes__icon_facebook"></span></span><span class="social-likes__counter social-likes__counter_facebook">44</span></div>
+<div class="social-likes__widget social-likes__widget_plusone" title="Share via Google"><span class="social-likes__button social-likes__button_plusone"><span class="social-likes__icon social-likes__icon_plusone"></span></span><span class="social-likes__counter social-likes__counter_plusone">2</span></div>
+<div class="social-likes__widget social-likes__widget_twitter" title="Share via Twitter"><span class="social-likes__button social-likes__button_twitter"><span class="social-likes__icon social-likes__icon_twitter"></span></span><span class="social-likes__counter social-likes__counter_twitter">0</span></div><div class="social-likes__widget social-likes__widget_comments"><a href="https://securelist.com/blog/sas/77813/top-8-reasons-you-dont-want-to-miss-sas-2017/#respond"><span class="social-likes__button social-likes__button_comments"><span class="social-likes__icon social-likes__icon_comments"></span></span><span class="social-likes__counter social-likes__counter_comments">0</span></a></div></div>					</div>
+				</div><!-- .promo-box -->
+
+			
+			</div><!-- .promo-box-wrap -->
+
+		</aside><aside id="readers_feedback-2" class="widget widget_readers_feedback box-visible" style="display: block;"><h3 class="widget-title">Readers Feedback</h3>
+		<div class="readers-feedback-wrap">
+			<div class="readers-feedback">
+			<div class="social-likes social-likes_visible social-likes_ready" data-title="Versatile DDoS Trojan for Linux" data-url="https://securelist.com/analysis/publications/64361/versatile-ddos-trojan-for-linux/" data-counters="yes" data-zeroes="yes"><div class="social-likes__widget social-likes__widget_facebook" title="Share via Facebook"><span class="social-likes__button social-likes__button_facebook"><span class="social-likes__icon social-likes__icon_facebook"></span>Facebook</span><span class="social-likes__counter social-likes__counter_facebook">57</span></div>
+<div class="social-likes__widget social-likes__widget_plusone" title="Share via Google"><span class="social-likes__button social-likes__button_plusone"><span class="social-likes__icon social-likes__icon_plusone"></span>Google</span><span class="social-likes__counter social-likes__counter_plusone">7</span></div>
+<div class="social-likes__widget social-likes__widget_twitter" title="Share via Twitter"><span class="social-likes__button social-likes__button_twitter"><span class="social-likes__icon social-likes__icon_twitter"></span>Twitter</span><span class="social-likes__counter social-likes__counter_twitter">0</span></div></div>			</div>
+		</div><!-- .readers-feedback-wrap -->
+
+		</aside></div>		</div><!-- .widget-area -->
+	</div><!-- #secondary -->
+	</div>
+
+</article><!-- #post -->
+
+
+		</main><!-- #content -->
+	</div><!-- #primary -->
+
+
+		</div><!-- #main -->
+		<footer id="colophon" class="site-footer" role="contentinfo" itemscope="" itemtype="http://schema.org/WPFooter">
+			<div class="grid col-2">
+				<div id="tertiary" class="sidebar-container" role="complementary">
+					<div class="sidebar-inner">
+						<div class="widget-area">
+							<aside id="text-6" class="widget widget_text">			<div class="textwidget"><div class="site-info">
+<span class="logo-footer"></span>
+<br><br>
+<p>© 2017 <a href="http://www.kaspersky.com/">AO Kaspersky Lab.</a>
+All Rights Reserved. Registered trademarks and service marks are the property of their respective owners.</p>
+
+<a href="https://securelist.com/contacts">Contact us</a> | <a href="http://www.kaspersky.com/privacy">Read our privacy policy</a>
+</div><!-- .site-info --></div>
+		</aside>						</div><!-- .widget-area -->
+					</div><!-- .sidebar-inner -->
+				</div><!-- #tertiary -->
+			</div>
+
+			<div class="grid col-1">
+				<div id="tertiary" class="sidebar-container" role="complementary">
+					<div class="sidebar-inner">
+						<div class="widget-area">
+							<aside id="nav_menu-3" class="widget widget_nav_menu"><h3 class="widget-title">Categories</h3><div class="menu-footer-categories-container"><ul id="menu-footer-categories" class="menu"><li id="menu-item-58031" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-58031"><a href="https://securelist.com/all?category=27">Events</a></li>
+<li id="menu-item-58029" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-58029"><a href="https://securelist.com/all?category=22">Incidents</a></li>
+<li id="menu-item-58033" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-58033"><a href="https://securelist.com/all?category=105">Opinions</a></li>
+<li id="menu-item-58032" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-58032"><a href="https://securelist.com/all?category=24">Research</a></li>
+<li id="menu-item-58035" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-58035"><a href="https://securelist.com/all?category=91">Spam Test</a></li>
+<li id="menu-item-58030" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-58030"><a href="https://securelist.com/all?category=25">Virus Watch</a></li>
+<li id="menu-item-58036" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-58036"><a href="https://securelist.com/all?category=48">Webcasts</a></li>
+</ul></div></aside>						</div><!-- .widget-area -->
+					</div><!-- .sidebar-inner -->
+				</div><!-- #tertiary -->
+			</div>
+
+			<div class="grid col-1">
+				<div id="tertiary" class="sidebar-container" role="complementary">
+					<div class="sidebar-inner">
+						<div class="widget-area">
+							<aside id="nav_menu-2" class="widget widget_nav_menu"><h3 class="widget-title">Pages</h3><div class="menu-services-menu-container"><ul id="menu-services-menu" class="menu"><li id="menu-item-64337" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-64337"><a href="https://securelist.com/contacts/">Contacts</a></li>
+<li id="menu-item-64338" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-64338"><a href="https://securelist.com/rss-feeds/">RSS feed</a></li>
+</ul></div></aside>						</div><!-- .widget-area -->
+					</div><!-- .sidebar-inner -->
+				</div><!-- #tertiary -->
+			</div>
+
+			<div class="grid col-2">
+				<div id="tertiary" class="sidebar-container" role="complementary">
+					<div class="sidebar-inner">
+						<div class="widget-area">
+							<aside id="social_icons-3" class="widget widget_social_icons"><h3 class="widget-title"></h3><div class="social-icons-wrap"><ul class="social-icons"><li class="social-icon twitter"><a href="https://twitter.com/Securelist" target="_blank">Twitter</a></li><li class="social-icon facebook"><a href="https://www.facebook.com/securelist" target="_blank">Facebook</a></li><li class="social-icon google"><a href="https://plus.google.com/+KasperskyLab" target="_blank">Google+</a></li><li class="social-icon linkedin"><a href="https://www.linkedin.com/company/kaspersky-lab" target="_blank">LinkedIn</a></li><li class="social-icon youtube"><a href="http://www.youtube.com/securelist" target="_blank">YouTube</a></li><li class="social-icon rss"><a href="https://securelist.com/feed/" target="_blank">RSS</a></li><li class="social-icon email"><a href="https://securelist.com/contacts/">Email</a></li></ul></div><!-- .social-icons-wrap --></aside><aside id="search-3" class="widget widget_search"><form role="search" class="searchform" action="https://securelist.com/" method="get">
+    <fieldset>
+        <input type="text" name="s" class="search" value="Search" onfocus="if(this.value==this.defaultValue)this.value=&#39;&#39;;" onblur="if(this.value==&#39;&#39;)this.value=this.defaultValue;">
+        <input type="submit" class="form-button" alt="Search">
+            </fieldset>
+</form>
+</aside>						</div><!-- .widget-area -->
+					</div><!-- .sidebar-inner -->
+				</div><!-- #tertiary -->
+			</div>
+		</footer><!-- #colophon -->
+	</div><!-- #page -->
+
+	<script src="https://platform.twitter.com/oct.js" type="text/javascript"></script>
+<script type="text/javascript">twttr.conversion.trackPid('ntt0i', { tw_sale_amount: 0, tw_order_quantity: 0 });</script>
+<noscript>
+&lt;img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=ntt0i&amp;p_id=Twitter&amp;tw_sale_amount=0&amp;tw_order_quantity=0" /&gt;
+&lt;img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=ntt0i&amp;p_id=Twitter&amp;tw_sale_amount=0&amp;tw_order_quantity=0" /&gt;
+</noscript><script type="text/javascript">
+var colomatduration = 'fast';
+var colomatslideEffect = 'slideFade';
+</script>					<script>
+						jQuery(document).ready(function() {
+							jQuery('.entry-content img').sti({
+								selector: 'img',
+								url: 'https://securelist.com/analysis/publications/64361/versatile-ddos-trojan-for-linux/',
+								title: 'Versatile DDoS Trojan for Linux',
+								summary: 'In February  2014, an article was published on a popular Russian IT website under a curious title  - Studying the BillGates Linux Botnet. It described a Trojan with sufficiently  versatile DDoS functionality. …'
+							});
+						});
+					</script>
+		<div style="display:none">
+	<div class="grofile-hash-map-3dfbb96eb4154297641ae79418c1dbe1">
+	</div>
+	<div class="grofile-hash-map-2d32641e93244576458b43b092305a99">
+	</div>
+	<div class="grofile-hash-map-e3c628b8e1fe4e6450c11b726bfbe824">
+	</div>
+	</div>
+            <script type="text/javascript">
+            if ( typeof _recaptcha_wordpress_savedcomment != 'undefined') {
+                document.getElementById('comment').value =
+                    _recaptcha_wordpress_savedcomment;
+            }
+            </script><script type="text/javascript">
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"https:\/\/securelist.com\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Versatile DDoS Trojan for Linux - Securelist_files/saved_resource(5)"></script>
+<script type="text/javascript" src="./Versatile DDoS Trojan for Linux - Securelist_files/saved_resource(6)"></script>
+<script type="text/javascript" src="./Versatile DDoS Trojan for Linux - Securelist_files/saved_resource(7)"></script>
+<script type="text/javascript" src="./Versatile DDoS Trojan for Linux - Securelist_files/e-201714.js" async="" defer=""></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:4.7',blog:'58599322',post:'64361',tz:'0',srv:'securelist.com'} ]);
+	_stq.push([ 'clickTrackerInit', '58599322', '64361' ]);
+</script>
+
+
+<!-- Powered by Whitelist IP For Limit Login Attempts | URL: http://club.orbisius.com/products/wordpress-plugins/whitelist-ip-for-limit-login-attempts/ -->
+
+
+
+<div style="background-color: #fff; border: 1px solid #ccc; box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2); position: absolute; left: 0px; top: -10000px; transition: visibility 0s linear 0.3s, opacity 0.3s linear; opacity: 0; visibility: hidden; z-index: 2000000000;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: #fff; opacity: 0.05;  filter: alpha(opacity=5)"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0; height: 0; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0; height: 0; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe src="./Versatile DDoS Trojan for Linux - Securelist_files/bframe.html" title="recaptcha challenge" frameborder="0" scrolling="no" name="ynwkq51i0gc1" style="width: 100%; height: 100%;"></iframe></div></div><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" title="Twitter analytics iframe" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" src="./Versatile DDoS Trojan for Linux - Securelist_files/saved_resource.html"></iframe><img src="./Versatile DDoS Trojan for Linux - Securelist_files/g.gif" alt=":)" width="6" height="5" id="wpstats"></body></html>
