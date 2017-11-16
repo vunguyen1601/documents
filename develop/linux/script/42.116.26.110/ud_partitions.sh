@@ -1,9 +1,10 @@
 #!/bin/bash
 SERVER="42.116.26.110"
-NOW=$(date +"%Y%m%d%H%M%S")
+NOW=$(date +"%d_%m_%Y")
 MONTH_NEXT=$(date -d "1 month" +"%m")
 MONTH_NEXT_NEXT=$(date -d "2 month" +"%m")
 MONTH_YEAR_NEXT=$(date -d "1 month" +"%Y")
+MONTH_YEAR_NEXT_NEXT=$(date -d "2 month" +"%Y")
 FILE_SQL=$MONTH_NEXT$MONTH_YEAR_NEXT".sql"
 #SMS CONFIG
 URL_SMS="http://onesms.mobifone.vn:8082/SMSAPI/SendSMS?"
@@ -16,23 +17,22 @@ echo "" > $FILE_SQL
 array=( evn_rawdata evn_loadprofiledata evn_alarmdata )
 for TABLE in "${array[@]}"
 do
-	#delete partitions end 
-	echo "ALTER TABLE $TABLE DROP PARTITION "$TABLE"_pEnd;" >> $FILE_SQL
-	#add month next
-	echo "ALTER TABLE $TABLE ADD PARTITION (
-    		PARTITION "$TABLE"_p$MONTH_NEXT$MONTH_YEAR_NEXT VALUES LESS THAN (to_seconds('$MONTH_YEAR_NEXT-$MONTH_NEXT_NEXT-01 00:00:00')),
-    		PARTITION "$TABLE"_pEnd VALUES LESS THAN MAXVALUE
-		);" >> $FILE_SQL
+        #delete partitions end 
+        echo "ALTER TABLE $TABLE DROP PARTITION "$TABLE"_pEnd;" >> $FILE_SQL
+        #add month next
+        echo "ALTER TABLE $TABLE ADD PARTITION (
+                PARTITION "$TABLE"_p$MONTH_NEXT$MONTH_YEAR_NEXT VALUES LESS THAN (to_seconds('$MONTH_YEAR_NEXT_NEXT-$MONTH_NEXT_NEXT-01 00:00:00')),
+                PARTITION "$TABLE"_pEnd VALUES LESS THAN MAXVALUE
+                );" >> $FILE_SQL
 
 done
-echo "SELECT count(*) from evn_devicea;" > $FILE_SQL
 result=$(mysql --user=ict --password=!iIcCtT@ --database=ictfw_db < ${FILE_SQL} 2>&1 )
 RESULT=$?
 #echo $RESULT
 MESSAGE_SMS="SV:$SERVER%20DA%20OK%20PARTITIONS%20$NOW"
 if [ $RESULT != 0 ]
 then
-	MESSAGE_SMS="SV:$SERVER%20LOI%20TAO%20PARTITIONS%20$NOW"
+        MESSAGE_SMS="SV:$SERVER%20LOI%20TAO%20PARTITIONS%20$NOW"
 fi
 
 #SEND SMS 
